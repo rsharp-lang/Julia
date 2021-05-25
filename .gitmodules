@@ -1,0 +1,6 @@
+[submodule "rserver/framework/Darwinism"]
+	path = rserver/framework/Darwinism
+	url = https://github.com/xieguigang/Darwinism.git
+[submodule "rserver/framework/sciBASIC#"]
+	path = "rserver/framework/sciBASIC#"
+	url = https://github.com/xieguigang/sciBASIC.git
