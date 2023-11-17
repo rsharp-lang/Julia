@@ -24,106 +24,8 @@ Namespace Native.jl_cdecl
         Public Shared Function jl_string_ptr(v As IntPtr) As IntPtr
         End Function
 
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_unbox_float64(t As IntPtr) As Double
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_unbox_float32(t As IntPtr) As Single
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_unbox_int32(t As IntPtr) As Integer
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_unbox_int16(t As IntPtr) As Short
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_unbox_int8(t As IntPtr) As SByte
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_unbox_bool(t As IntPtr) As Boolean
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_unbox_uint64(t As IntPtr) As ULong
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_unbox_uint32(t As IntPtr) As UInteger
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_unbox_uint16(t As IntPtr) As UShort
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_unbox_uint8(t As IntPtr) As Byte
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_unbox_voidpointer(v As IntPtr) As IntPtr
-        End Function
-
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_box_float64(t As Double) As IntPtr
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_box_float32(t As Single) As IntPtr
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_box_int32(t As Integer) As IntPtr
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_box_int16(t As Short) As IntPtr
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_box_int8(t As SByte) As IntPtr
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_box_bool(t As Boolean) As IntPtr
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_box_uint64(t As ULong) As IntPtr
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_box_uint32(t As UInteger) As IntPtr
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_box_uint16(t As UShort) As IntPtr
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_box_uint8(t As Byte) As IntPtr
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_box_voidpointer(x As IntPtr) As IntPtr
-        End Function
-
         <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
         Public Shared Function jl_cstr_to_string(s As String) As IntPtr
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, EntryPoint:="jl_unbox_int64", CallingConvention:=CallingConvention.Cdecl)>
-        Friend Shared Function Jl_unbox_int64(v As IntPtr) As Long
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, EntryPoint:="jl_box_int64", CallingConvention:=CallingConvention.Cdecl)>
-        Friend Shared Function Jl_box_int64(x As Long) As IntPtr
         End Function
 
         <DllImport(JuliaNative.LibraryName, EntryPoint:="jl_get_global", CallingConvention:=CallingConvention.Cdecl)>
@@ -151,26 +53,12 @@ Namespace Native.jl_cdecl
         End Function
 
         <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_exception_occurred() As IntPtr
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_current_exception() As IntPtr
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_exception_clear()
-        End Sub
-
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
         Public Shared Function jl_typename_str(val As IntPtr) As IntPtr
         End Function
 
         <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
         Public Shared Function jl_typeof_str(v As IntPtr) As IntPtr
         End Function
-
 
         <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
         Public Shared Function jl_new_module(name As IntPtr) As IntPtr
@@ -203,7 +91,6 @@ Namespace Native.jl_cdecl
         <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
         Public Shared Function jl_get_module_infer(m As IntPtr) As Integer
         End Function
-
 
         <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
         Public Shared Function jl_get_binding(m As IntPtr, var As IntPtr) As IntPtr
@@ -299,16 +186,6 @@ Namespace Native.jl_cdecl
         Public Shared Function jl_eqtable_get(h As IntPtr, key As IntPtr, deflt As IntPtr) As IntPtr
         End Function
 
-
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_errno() As Integer
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_set_errno(e As Integer)
-        End Sub
-
         <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
         Public Shared Function jl_stat(path As String, statbuf As String) As Integer
         End Function
@@ -345,50 +222,9 @@ Namespace Native.jl_cdecl
         Public Shared Function jl_environ(i As Integer) As IntPtr
         End Function
 
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_error(str As String)
-        End Sub
-
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_too_few_args(fname As String, min As Integer)
-        End Sub
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_too_many_args(fname As String, max As Integer)
-        End Sub
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_type_error(fname As String, expected As IntPtr, got As IntPtr)
-        End Sub
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_type_error_rt(fname As String, context As String, ty As IntPtr, got As IntPtr)
-        End Sub
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_undefined_var_error(var As IntPtr)
-        End Sub
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_atomic_error(str As String)
-        End Sub
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_bounds_error(v As IntPtr, t As IntPtr)
-        End Sub
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_eof_error()
-        End Sub
-
-
         <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
         Public Shared Function jl_get_libdir() As IntPtr
         End Function
-
-
 
         <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
         Public Shared Sub jl_init_with_image(julia_bindir As String, image_relative_path As String)
@@ -402,11 +238,9 @@ Namespace Native.jl_cdecl
         Public Shared Function jl_is_initialized() As Integer
         End Function
 
-
         <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
         Public Shared Sub jl_exit(status As Integer)
         End Sub
-
 
         <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
         Public Shared Function jl_pathname_for_handle(handle As IntPtr) As IntPtr
@@ -455,7 +289,6 @@ Namespace Native.jl_cdecl
         <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
         Public Shared Function jl_operator_precedence(sym As String) As Integer
         End Function
-
 
         <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
         Public Shared Sub jl_yield()
