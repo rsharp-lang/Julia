@@ -1,4 +1,4 @@
-﻿Imports System.Runtime.InteropServices
+﻿Imports Microsoft.VisualBasic.ApplicationServices.DynamicInterop
 
 Namespace Native
 
@@ -7,40 +7,22 @@ Namespace Native
     ''' </summary>
     Public Class Windows
 
-        <DllImport("kernel32.dll", CallingConvention:=CallingConvention.StdCall, CharSet:=CharSet.Ansi)>
-        Private Shared Function LoadLibrary(
-    <MarshalAs(UnmanagedType.LPStr)> filename As String) As IntPtr
-        End Function
-
-        <DllImport("Kernel32.dll", CallingConvention:=CallingConvention.StdCall, CharSet:=CharSet.Ansi)>
-        Private Shared Function GetProcAddress(hModule As IntPtr,
-    <MarshalAs(UnmanagedType.LPStr)> lpProcName As String) As IntPtr
-        End Function
-
-        <DllImport("Kernel32.dll", CallingConvention:=CallingConvention.StdCall, CharSet:=CharSet.Ansi)>
-        Private Shared Function FreeLibrary(hModule As IntPtr) As Boolean
-        End Function
-
-        ''' <summary>
-        ''' 
-        ''' </summary>
-        ''' <param name="libname">file path to the ``bin\libjulia.dll`` on windows</param>
-        Public Shared Sub LoadJulia(libname As String)
+        Public Shared Sub LoadJulia(libjulia As UnmanagedDll)
             JuliaNative.LibPtr = LoadLibrary(libname)
 
-            JuliaNative.InitThreading = AddressOf JuliaNative.Jl_init__threading
-            JuliaNative.AtExitHook = AddressOf JuliaNative.Jl_atexit_hook
-            JuliaNative.EvalString = AddressOf JuliaNative.Jl_eval_string
-            JuliaNative.UnboxFloat64 = AddressOf JuliaNative.Jl_unbox_float64
-            JuliaNative.BoxFloat64 = AddressOf JuliaNative.Jl_box_float64
-            JuliaNative.UnboxInt64 = AddressOf JuliaNative.Jl_unbox_int64
-            JuliaNative.BoxInt64 = AddressOf JuliaNative.Jl_box_int64
-            JuliaNative.GetGlobal = AddressOf JuliaNative.Jl_get_global
-            JuliaNative.Call1 = AddressOf JuliaNative.Jl_call1
-            JuliaNative.Symbol = AddressOf JuliaNative.Jl_symbol
-            JuliaNative.ApplyArrayType = AddressOf JuliaNative.Jl_apply_array_type
-            JuliaNative.AllocArray1D = AddressOf JuliaNative.Jl_alloc_array_1d
-            JuliaNative.AllocArray2D = AddressOf JuliaNative.Jl_alloc_array_2d
+            JuliaNative.InitThreading = AddressOf Cdecl.Jl_init__threading
+            JuliaNative.AtExitHook = AddressOf Cdecl.Jl_atexit_hook
+            JuliaNative.EvalString = AddressOf Cdecl.Jl_eval_string
+            JuliaNative.UnboxFloat64 = AddressOf Cdecl.Jl_unbox_float64
+            JuliaNative.BoxFloat64 = AddressOf Cdecl.Jl_box_float64
+            JuliaNative.UnboxInt64 = AddressOf Cdecl.Jl_unbox_int64
+            JuliaNative.BoxInt64 = AddressOf Cdecl.Jl_box_int64
+            JuliaNative.GetGlobal = AddressOf Cdecl.Jl_get_global
+            JuliaNative.Call1 = AddressOf Cdecl.Jl_call1
+            JuliaNative.Symbol = AddressOf Cdecl.Jl_symbol
+            JuliaNative.ApplyArrayType = AddressOf Cdecl.Jl_apply_array_type
+            JuliaNative.AllocArray1D = AddressOf Cdecl.Jl_alloc_array_1d
+            JuliaNative.AllocArray2D = AddressOf Cdecl.Jl_alloc_array_2d
 
             JuliaNative.Float64Type = GetProcAddress(JuliaNative.LibPtr, "jl_float64_type")
             JuliaNative.Int64Type = GetProcAddress(JuliaNative.LibPtr, "jl_int64_type")

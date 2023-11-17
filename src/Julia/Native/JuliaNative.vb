@@ -1,5 +1,5 @@
 ﻿Imports System.Runtime.InteropServices
-Imports size_t = System.UIntPtr
+Imports Microsoft.VisualBasic.ApplicationServices.DynamicInterop
 
 Namespace Native
 
@@ -8,6 +8,7 @@ Namespace Native
         Public Const LibraryName As String = "libjulia"
 
         Friend Shared LibPtr As IntPtr = IntPtr.Zero
+        Friend Shared julia As UnmanagedDll
 
         Public Shared InitThreading As JuliaInitDelegate = Nothing
         Public Shared AtExitHook As JuliaAtExitHookDelegate = Nothing
@@ -37,7 +38,16 @@ Namespace Native
         Public Shared BaseModule As IntPtr
 #End Region
 
+        ''' <summary>
+        ''' 
+        ''' </summary>
+        ''' <param name="fileName">
+        ''' 1. file path to the ``bin\libjulia.dll`` on windows
+        ''' 2. filepath to the file ``libjulia.so`` on linux platform
+        ''' </param>
         Public Shared Sub LoadDll(fileName As String)
+            julia = New UnmanagedDll(fileName)
+
             If RuntimeInformation.IsOSPlatform(OSPlatform.Windows) Then
                 Windows.LoadJulia(fileName)
             ElseIf RuntimeInformation.IsOSPlatform(OSPlatform.Linux) Then
