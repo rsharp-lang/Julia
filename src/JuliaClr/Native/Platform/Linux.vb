@@ -1,7 +1,7 @@
 ﻿Imports System.Runtime.InteropServices
 Imports Microsoft.VisualBasic.ApplicationServices.DynamicInterop
 
-Namespace Native
+Namespace Native.Platform
 
     Public Class Linux
 

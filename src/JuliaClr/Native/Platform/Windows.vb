@@ -1,7 +1,7 @@
 ﻿Imports Microsoft.VisualBasic.ApplicationServices.DynamicInterop
 Imports SMRUCC.Julia.Native.jl_cdecl
 
-Namespace Native
+Namespace Native.Platform
 
     ''' <summary>
     ''' the windows julia directory

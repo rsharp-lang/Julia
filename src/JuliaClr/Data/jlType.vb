@@ -1,20 +1,19 @@
 ﻿Imports System.Runtime.InteropServices
 Imports SMRUCC.Julia.Native
+Imports SMRUCC.Julia.Native.Platform.clr
 
 Public Class jlType
 
-    ReadOnly index As New Dictionary(Of Type, IntPtr)() From {
-        {GetType(Double), Marshal.ReadIntPtr(JuliaNative.Float64Type)},
-        {GetType(Long), Marshal.ReadIntPtr(JuliaNative.Int64Type)}
-    }
+    ReadOnly index As Dictionary(Of Type, IntPtr)
 
     ''' <summary>
     ''' initialize the julia type system required of load of the handles:
     ''' 
-    ''' + <see cref="JuliaNative.Float64Type"/>
-    ''' + <see cref="JuliaNative.Int64Type"/>
+    ''' + <see cref="JuliaNative.jl_float64_type"/>
+    ''' + <see cref="JuliaNative.jl_int64_type"/>
     ''' </summary>
     Sub New()
+        index = TypeForwardAttribute.LoadTypeForwards
     End Sub
 
     Public Overloads Function [GetType](Of T)() As IntPtr

@@ -1,5 +1,8 @@
 ﻿Imports System.Runtime.InteropServices
 Imports Microsoft.VisualBasic.ApplicationServices.DynamicInterop
+Imports SMRUCC.Julia.Native.Platform
+Imports SMRUCC.Julia.Native.Platform.clr
+Imports jl_type_id = System.IntPtr
 
 Namespace Native
 
@@ -34,8 +37,25 @@ Namespace Native
         End Function
 
 #Region "julia types"
-        Public Shared Float64Type As IntPtr
-        Public Shared Int64Type As IntPtr
+
+        <TypeForward(GetType(Boolean))> Public Shared jl_bool_type As jl_type_id
+        <TypeForward(GetType(Char))> Public Shared jl_char_type As jl_type_id
+        <TypeForward(GetType(SByte))> Public Shared jl_int8_type As jl_type_id
+        <TypeForward(GetType(Byte))> Public Shared jl_uint8_type As jl_type_id
+        <TypeForward(GetType(Int16))> Public Shared jl_int16_type As jl_type_id
+        <TypeForward(GetType(UInt16))> Public Shared jl_uint16_type As jl_type_id
+        <TypeForward(GetType(Int32))> Public Shared jl_int32_type As jl_type_id
+        <TypeForward(GetType(UInt32))> Public Shared jl_uint32_type As jl_type_id
+        <TypeForward(GetType(Int64))> Public Shared jl_int64_type As jl_type_id
+        <TypeForward(GetType(UInt64))> Public Shared jl_uint64_type As jl_type_id
+        <TypeForward(GetType(Half))> Public Shared jl_float16_type As jl_type_id
+        <TypeForward(GetType(Single))> Public Shared jl_float32_type As jl_type_id
+        <TypeForward(GetType(Double))> Public Shared jl_float64_type As jl_type_id
+        Public Shared jl_floatingpoint_type As jl_type_id
+        Public Shared jl_number_type As jl_type_id
+        Public Shared jl_void_type As jl_type_id
+        Public Shared jl_nothing_type As jl_type_id
+
         Public Shared BaseModule As IntPtr
 #End Region
 
@@ -59,8 +79,23 @@ Namespace Native
             End If
 
             ' get julia data type
-            JuliaNative.Float64Type = Julia.GetFunctionAddress("jl_float64_type")
-            JuliaNative.Int64Type = Julia.GetFunctionAddress("jl_int64_type")
+            JuliaNative.jl_bool_type = Julia.GetFunctionAddress("jl_bool_type")
+            JuliaNative.jl_char_type = Julia.GetFunctionAddress("jl_char_type")
+            JuliaNative.jl_int8_type = Julia.GetFunctionAddress("jl_int8_type")
+            JuliaNative.jl_uint8_type = Julia.GetFunctionAddress("jl_uint8_type")
+            JuliaNative.jl_int16_type = Julia.GetFunctionAddress("jl_int16_type")
+            JuliaNative.jl_uint16_type = Julia.GetFunctionAddress("jl_uint16_type")
+            JuliaNative.jl_int32_type = Julia.GetFunctionAddress("jl_int32_type")
+            JuliaNative.jl_uint32_type = Julia.GetFunctionAddress("jl_uint32_type")
+            JuliaNative.jl_int64_type = Julia.GetFunctionAddress("jl_int64_type")
+            JuliaNative.jl_uint64_type = Julia.GetFunctionAddress("jl_uint64_type")
+            JuliaNative.jl_float16_type = Julia.GetFunctionAddress("jl_float16_type")
+            JuliaNative.jl_float32_type = Julia.GetFunctionAddress("jl_float32_type")
+            JuliaNative.jl_float64_type = Julia.GetFunctionAddress("jl_float64_type")
+            JuliaNative.jl_floatingpoint_type = Julia.GetFunctionAddress("jl_floatingpoint_type")
+            JuliaNative.jl_number_type = Julia.GetFunctionAddress("jl_number_type")
+            JuliaNative.jl_void_type = Julia.GetFunctionAddress("jl_void_type")
+            JuliaNative.jl_nothing_type = Julia.GetFunctionAddress("jl_nothing_type")
             JuliaNative.BaseModule = Julia.GetFunctionAddress("jl_base_module")
 
             Type = New jlType
