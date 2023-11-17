@@ -5,3 +5,4 @@ bin/
 src/.vs/Julia.netcoreapp/v17/.suo
 *.v2
 *.bin
+assembly/
