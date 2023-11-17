@@ -2,7 +2,10 @@ Imports Microsoft.VisualBasic.CommandLine.Reflection
 Imports Microsoft.VisualBasic.Scripting.MetaData
 Imports SMRUCC.Julia.Native
 
-<Package("interop")>
+''' <summary>
+''' access to the julia native runtime
+''' </summary>
+<Package(".interop")>
 Public Module Interop
 
     ''' <summary>
