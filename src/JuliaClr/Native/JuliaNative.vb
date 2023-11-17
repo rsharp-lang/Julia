@@ -17,7 +17,7 @@ Namespace Native
         Friend Shared julia_init__threading As julia_init__threading = Nothing
 
         Public Shared AtExitHook As JuliaAtExitHookDelegate = Nothing
-        Public Shared EvalString As JuliaEvalStringDelegate = Nothing
+        Public Shared julia_eval_string As julia_eval_string = Nothing
         Public Shared UnboxFloat64 As JuliaUnboxFloat64Delegate = Nothing
         Public Shared BoxFloat64 As JuliaBoxFloat64Delegate = Nothing
         Public Shared UnboxInt64 As JuliaUnboxInt64Delegate = Nothing

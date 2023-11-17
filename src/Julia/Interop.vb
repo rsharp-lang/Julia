@@ -1,6 +1,12 @@
 Imports Microsoft.VisualBasic.CommandLine.Reflection
+Imports Microsoft.VisualBasic.Language
 Imports Microsoft.VisualBasic.Scripting.MetaData
 Imports SMRUCC.Julia.Native
+Imports SMRUCC.Rsharp.Interpreter
+Imports SMRUCC.Rsharp.Runtime
+Imports SMRUCC.Rsharp.Runtime.Internal.Object
+Imports SMRUCC.Rsharp.Runtime.Interop
+Imports SMRUCC.Rsharp.Runtime.Vectorization
 
 ''' <summary>
 ''' access to the julia native runtime
@@ -34,4 +40,34 @@ Public Module Interop
         Call JuliaNative.AtExitHook(code)
     End Sub
 
+    <ExportAPI("jl_eval_string")>
+    Public Function jl_eval_string(<RRawVectorArgument> expr As Object, Optional env As Environment = Nothing) As Object
+        Dim s_exprs As String() = CLRVector.asCharacter(expr)
+        Dim jl_out As Object
+
+        If s_exprs.IsNullOrEmpty Then
+            Return Nothing
+        ElseIf s_exprs.Length = 1 Then
+            Return eval_string_single(s_exprs(0), env)
+        End If
+
+        Dim eval As New list With {.slots = New Dictionary(Of String, Object)}
+        Dim i As i32 = 1
+
+        For Each s As String In s_exprs
+            jl_out = eval_string_single(s, env)
+
+            If Program.isException(jl_out) Then
+                Return jl_out
+            End If
+
+            eval.add($"#{++i}", jl_out)
+        Next
+
+        Return eval
+    End Function
+
+    Private Function eval_string_single(s As String, env As Environment) As Object
+        Dim jl_out As IntPtr = JuliaNative.julia_eval_string(s)
+    End Function
 End Module

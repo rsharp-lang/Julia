@@ -26,7 +26,7 @@ Namespace Native
     ''' </summary>
     ''' <param name="str"></param>
     ''' <returns></returns>
-    Public Delegate Function JuliaEvalStringDelegate(<MarshalAs(UnmanagedType.LPStr)> str As String) As IntPtr
+    Public Delegate Function julia_eval_string(<MarshalAs(UnmanagedType.LPStr)> str As String) As IntPtr
 
     ''' <summary>
     ''' jl_unbox_float64

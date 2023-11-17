@@ -11,7 +11,7 @@ Namespace Native.Platform
         Public Shared Sub LoadJulia(libjulia As UnmanagedDll)
             JuliaNative.julia_init__threading = AddressOf Cdecl.Jl_init__threading
             JuliaNative.AtExitHook = AddressOf Cdecl.Jl_atexit_hook
-            JuliaNative.EvalString = AddressOf Cdecl.Jl_eval_string
+            JuliaNative.julia_eval_string = AddressOf Cdecl.Jl_eval_string
             JuliaNative.UnboxFloat64 = AddressOf Cdecl.Jl_unbox_float64
             JuliaNative.BoxFloat64 = AddressOf Cdecl.Jl_box_float64
             JuliaNative.UnboxInt64 = AddressOf Cdecl.Jl_unbox_int64

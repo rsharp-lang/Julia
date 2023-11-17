@@ -7,9 +7,9 @@ Module Program
         JuliaNative.LoadDll("C:\Users\Administrator\AppData\Local\Programs\Julia-1.9.4\bin\libjulia.dll")
 
         ' JuliaNative.InitThreading()
-        JuliaNative.EvalString("println(123)")
+        JuliaNative.julia_eval_string("println(123)")
 
-        Dim r As jlValue(Of Double) = JuliaNative.EvalString("sqrt(2.0)")
+        Dim r As jlValue(Of Double) = JuliaNative.julia_eval_string("sqrt(2.0)")
         Dim d As Double = r
         Console.WriteLine($"{d}")
 
@@ -20,16 +20,16 @@ Module Program
         ' Dim da = jlArray(Of Double).Create1D(10)
         ' Console.WriteLine(da)
 
-        Dim db As jlArray(Of Double) = JuliaNative.EvalString("rand(1,3)")
+        Dim db As jlArray(Of Double) = JuliaNative.julia_eval_string("rand(1,3)")
         Console.WriteLine(db)
 
-        Dim dc As jlArray(Of Double) = JuliaNative.EvalString("rand(10,4)")
+        Dim dc As jlArray(Of Double) = JuliaNative.julia_eval_string("rand(10,4)")
         Console.WriteLine(dc)
 
-        Dim dd As jlArray(Of Double) = JuliaNative.EvalString("rand(3,1)")
+        Dim dd As jlArray(Of Double) = JuliaNative.julia_eval_string("rand(3,1)")
         Console.WriteLine(dd)
 
-        Dim de As jlArray(Of Long) = JuliaNative.EvalString("ones(Int64, 2, 2)")
+        Dim de As jlArray(Of Long) = JuliaNative.julia_eval_string("ones(Int64, 2, 2)")
         Console.WriteLine(de)
 
         JuliaNative.AtExitHook(0)

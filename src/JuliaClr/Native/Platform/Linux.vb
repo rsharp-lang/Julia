@@ -18,7 +18,7 @@ Namespace Native.Platform
         Private Shared Sub UnixLoadLibrary(julia_so As UnmanagedDll)
             JuliaNative.julia_init__threading = Marshal.GetDelegateForFunctionPointer(Of Native.julia_init__threading)(julia_so.GetFunctionAddress("jl_init"))
             JuliaNative.AtExitHook = Marshal.GetDelegateForFunctionPointer(Of Native.JuliaAtExitHookDelegate)(julia_so.GetFunctionAddress("jl_atexit_hook"))
-            JuliaNative.EvalString = Marshal.GetDelegateForFunctionPointer(Of Native.JuliaEvalStringDelegate)(julia_so.GetFunctionAddress("jl_eval_string"))
+            JuliaNative.julia_eval_string = Marshal.GetDelegateForFunctionPointer(Of Native.julia_eval_string)(julia_so.GetFunctionAddress("jl_eval_string"))
             JuliaNative.UnboxFloat64 = Marshal.GetDelegateForFunctionPointer(Of Native.JuliaUnboxFloat64Delegate)(julia_so.GetFunctionAddress("jl_unbox_float64"))
             JuliaNative.BoxFloat64 = Marshal.GetDelegateForFunctionPointer(Of Native.JuliaBoxFloat64Delegate)(julia_so.GetFunctionAddress("jl_box_float64"))
             JuliaNative.GetGlobal = Marshal.GetDelegateForFunctionPointer(Of Native.JuliaGetGlobalDelegate)(julia_so.GetFunctionAddress("jl_get_global"))
