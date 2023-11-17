@@ -1,0 +1,5 @@
+
+*.vsidx
+obj/
+bin/
+src/.vs/Julia.netcoreapp/v17/.suo
