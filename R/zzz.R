@@ -13,5 +13,5 @@ const .onLoad = function() {
  _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
 |__/                   |
     
-    ");
+    \n");
 }
