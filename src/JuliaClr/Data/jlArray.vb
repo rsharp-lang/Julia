@@ -1,5 +1,7 @@
-﻿Imports System.Runtime.InteropServices
+﻿Imports System.Runtime.CompilerServices
+Imports System.Runtime.InteropServices
 Imports System.Text
+Imports Microsoft.VisualBasic.Emit.Marshal.MarshalExtensions
 Imports SMRUCC.Julia.Native
 Imports SMRUCC.Julia.Native.jl_cdecl
 Imports size_t = System.UIntPtr
@@ -7,6 +9,30 @@ Imports size_t = System.UIntPtr
 Public Class jlArray(Of T) : Inherits SafeHandle
 
     ReadOnly struc As jl_array_t
+
+    Public ReadOnly Property Ndims As Integer
+        Get
+            Return struc.flags.ndims
+        End Get
+    End Property
+
+    Public ReadOnly Property Nrows As Integer
+        Get
+            Return CInt(struc.nrows)
+        End Get
+    End Property
+
+    Public ReadOnly Property Ncols As Integer
+        Get
+            Return CInt(struc.ncols)
+        End Get
+    End Property
+
+    Public ReadOnly Property Length As Integer
+        Get
+            Return CInt(struc.length)
+        End Get
+    End Property
 
     Private Sub New()
         MyBase.New(IntPtr.Zero, True)
@@ -61,41 +87,10 @@ Public Class jlArray(Of T) : Inherits SafeHandle
         Return New jlArray(Of T)(x)
     End Function
 
+    <MethodImpl(MethodImplOptions.AggressiveInlining)>
     Public Function GetSpan() As T()
-        Select Case GetType(T)
-            Case GetType(Double)
-                Dim data As Double() = New Double(struc.length - 1) {}
-                Call Marshal.Copy(struc.data, data, 0, data.Length)
-                Return CObj(data)
-            Case GetType(Long)
-                Dim data As Long() = New Long(struc.length - 1) {}
-                Call Marshal.Copy(struc.data, data, 0, data.Length)
-                Return CObj(data)
-            Case Else
-                Throw New NotImplementedException
-        End Select
+        Return struc.data.MarshalAs(Of T)(struc.length).RawBuffer
     End Function
-
-    Public ReadOnly Property Ndims As Integer
-        Get
-            Return struc.flags.ndims
-        End Get
-    End Property
-    Public ReadOnly Property Nrows As Integer
-        Get
-            Return CInt(struc.nrows)
-        End Get
-    End Property
-    Public ReadOnly Property Ncols As Integer
-        Get
-            Return CInt(struc.ncols)
-        End Get
-    End Property
-    Public ReadOnly Property Length As Integer
-        Get
-            Return CInt(struc.length)
-        End Get
-    End Property
 
     Public Shared Widening Operator CType(ptr As IntPtr) As jlArray(Of T)
         Return New jlArray(Of T)(ptr)
