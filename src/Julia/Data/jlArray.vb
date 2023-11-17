@@ -3,13 +3,7 @@ Imports System.Text
 Imports JuliaSharp.Native
 Imports size_t = System.UIntPtr
 
-Public Class JuliaArray(Of T)
-    Inherits SafeHandle
-
-    Private Shared TypePair As New Dictionary(Of String, IntPtr)() From {
-{"Double", Marshal.ReadIntPtr(JuliaNative.Float64Type)},
-{"Int64", Marshal.ReadIntPtr(JuliaNative.Int64Type)}
-}
+Public Class jlArray(Of T) : Inherits SafeHandle
 
     Private Sub New()
         MyBase.New(IntPtr.Zero, True)
@@ -50,7 +44,7 @@ Public Class JuliaArray(Of T)
         End If
     End Sub
 
-    Public Shared Function Create1D(n As Integer) As JuliaArray(Of T)
+    Public Shared Function Create1D(n As Integer) As jlArray(Of T)
         Dim type = GetType(T)
 
         If Not TypePair.ContainsKey(type.Name) Then
@@ -58,13 +52,13 @@ Public Class JuliaArray(Of T)
         End If
 
         Dim elementType = TypePair(type.Name)
-        Dim dimension As ULong = 1 - 1
+        Dim dimension As ULong = 1
         Dim arrartype = JuliaNative.ApplyArrayType(elementType, dimension)
         Dim x = JuliaNative.AllocArray1D(arrartype, CType(n, size_t))
-        Return New JuliaArray(Of T)(x)
+        Return New jlArray(Of T)(x)
     End Function
 
-    Public Shared Function Create2D(nr As Integer, nc As Integer) As JuliaArray(Of T)
+    Public Shared Function Create2D(nr As Integer, nc As Integer) As jlArray(Of T)
         Dim type = GetType(T)
 
         If Not TypePair.ContainsKey(type.Name) Then
@@ -72,10 +66,10 @@ Public Class JuliaArray(Of T)
         End If
 
         Dim elementType = TypePair(type.Name)
-        Dim dimension = 2 - 1
+        Dim dimension = 2
         Dim arrartype = JuliaNative.ApplyArrayType(elementType, dimension)
         Dim x = JuliaNative.AllocArray2D(arrartype, CType(nr, size_t), CType(nc, size_t))
-        Return New JuliaArray(Of T)(x)
+        Return New jlArray(Of T)(x)
     End Function
 
     Public Function GetSpan() As T()
@@ -114,11 +108,11 @@ Public Class JuliaArray(Of T)
         End Get
     End Property
 
-    Public Shared Widening Operator CType(ptr As IntPtr) As JuliaArray(Of T)
-        Return New JuliaArray(Of T)(ptr)
+    Public Shared Widening Operator CType(ptr As IntPtr) As jlArray(Of T)
+        Return New jlArray(Of T)(ptr)
     End Operator
 
-    Public Shared Widening Operator CType(value As JuliaArray(Of T)) As IntPtr
+    Public Shared Widening Operator CType(value As jlArray(Of T)) As IntPtr
         Return value.GetHandle()
     End Operator
 

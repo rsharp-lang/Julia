@@ -98,4 +98,5 @@ Namespace Native
     ''' <param name="nc"></param>
     ''' <returns></returns>
     Public Delegate Function JuliaAllocArray2DDelegate(atype As IntPtr, nr As size_t, nc As size_t) As IntPtr
+
 End Namespace

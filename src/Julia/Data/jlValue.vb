@@ -2,8 +2,8 @@
 Imports System.Text
 Imports JuliaSharp.Native
 
-Public Class JuliaValue(Of T As IConvertible)
-    Inherits SafeHandle
+Public Class jlValue(Of T As IConvertible) : Inherits SafeHandle
+
     Private Sub New()
         MyBase.New(IntPtr.Zero, True)
         handle = IntPtr.Zero
@@ -59,42 +59,42 @@ Public Class JuliaValue(Of T As IConvertible)
         End Select
     End Function
 
-    Private Shared Function Box(value As Long) As JuliaValue(Of T)
+    Private Shared Function Box(value As Long) As jlValue(Of T)
         Dim p = JuliaNative.BoxInt64(value)
-        Return New JuliaValue(Of T)(p)
+        Return New jlValue(Of T)(p)
     End Function
 
-    Private Shared Function Box(value As Double) As JuliaValue(Of T)
+    Private Shared Function Box(value As Double) As jlValue(Of T)
         Dim p = JuliaNative.BoxFloat64(value)
-        Return New JuliaValue(Of T)(p)
+        Return New jlValue(Of T)(p)
     End Function
 
-    Public Shared Function Create(value As T) As JuliaValue(Of T)
+    Public Shared Function Create(value As T) As jlValue(Of T)
         Dim obj As Object = value
 
         Select Case value.GetType
             Case GetType(Double)
-                Return JuliaSharp.JuliaValue(Of T).Box(CDbl(obj))
+                Return JuliaSharp.jlValue(Of T).Box(CDbl(obj))
             Case GetType(Long)
-                Return JuliaSharp.JuliaValue(Of T).Box(CLng(obj))
+                Return JuliaSharp.jlValue(Of T).Box(CLng(obj))
             Case Else
                 Throw New System.ArgumentException("仅支持基本数据类型")
         End Select
     End Function
 
-    Public Shared Widening Operator CType(ptr As IntPtr) As JuliaValue(Of T)
-        Return New JuliaValue(Of T)(ptr)
+    Public Shared Widening Operator CType(ptr As IntPtr) As jlValue(Of T)
+        Return New jlValue(Of T)(ptr)
     End Operator
 
-    Public Shared Widening Operator CType(value As JuliaValue(Of T)) As IntPtr
+    Public Shared Widening Operator CType(value As jlValue(Of T)) As IntPtr
         Return value.GetHandle()
     End Operator
 
-    Public Shared Widening Operator CType(value As JuliaValue(Of T)) As T
+    Public Shared Widening Operator CType(value As jlValue(Of T)) As T
         Return value.Get()
     End Operator
 
-    Public Shared Widening Operator CType(value As T) As JuliaValue(Of T)
+    Public Shared Widening Operator CType(value As T) As jlValue(Of T)
         Return Create(value)
     End Operator
 End Class
