@@ -58,7 +58,7 @@ Public Class JuliaArray(Of T)
         End If
 
         Dim elementType = TypePair(type.Name)
-        Dim dimension As ULong = 1
+        Dim dimension As ULong = 1 - 1
         Dim arrartype = JuliaNative.ApplyArrayType(elementType, dimension)
         Dim x = JuliaNative.AllocArray1D(arrartype, CType(n, size_t))
         Return New JuliaArray(Of T)(x)
@@ -72,7 +72,7 @@ Public Class JuliaArray(Of T)
         End If
 
         Dim elementType = TypePair(type.Name)
-        Dim dimension = CType(2, size_t)
+        Dim dimension = 2 - 1
         Dim arrartype = JuliaNative.ApplyArrayType(elementType, dimension)
         Dim x = JuliaNative.AllocArray2D(arrartype, CType(nr, size_t), CType(nc, size_t))
         Return New JuliaArray(Of T)(x)
