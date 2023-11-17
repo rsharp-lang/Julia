@@ -9,16 +9,16 @@ Namespace Native
 
         <DllImport("kernel32.dll", CallingConvention:=CallingConvention.StdCall, CharSet:=CharSet.Ansi)>
         Private Shared Function LoadLibrary(
-    <MarshalAs(UnmanagedType.LPStr)> ByVal filename As String) As IntPtr
+    <MarshalAs(UnmanagedType.LPStr)> filename As String) As IntPtr
         End Function
 
         <DllImport("Kernel32.dll", CallingConvention:=CallingConvention.StdCall, CharSet:=CharSet.Ansi)>
-        Private Shared Function GetProcAddress(ByVal hModule As IntPtr,
-    <MarshalAs(UnmanagedType.LPStr)> ByVal lpProcName As String) As IntPtr
+        Private Shared Function GetProcAddress(hModule As IntPtr,
+    <MarshalAs(UnmanagedType.LPStr)> lpProcName As String) As IntPtr
         End Function
 
         <DllImport("Kernel32.dll", CallingConvention:=CallingConvention.StdCall, CharSet:=CharSet.Ansi)>
-        Private Shared Function FreeLibrary(ByVal hModule As IntPtr) As Boolean
+        Private Shared Function FreeLibrary(hModule As IntPtr) As Boolean
         End Function
 
         ''' <summary>

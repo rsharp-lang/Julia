@@ -18,7 +18,7 @@ Public Class JuliaArray(Of T)
 
     Private struc As jl_array_t
 
-    Public Sub New(ByVal handle As IntPtr)
+    Public Sub New(handle As IntPtr)
         MyBase.New(handle, True)
         SetHandle(handle)
         struc = Marshal.PtrToStructure(Of jl_array_t)(handle)
@@ -44,13 +44,13 @@ Public Class JuliaArray(Of T)
         End If
     End Function
 
-    Public Sub ReturnHandle(ByVal h As IntPtr)
+    Public Sub ReturnHandle(h As IntPtr)
         If h = handle AndAlso Not IsInvalid Then
             DangerousRelease()
         End If
     End Sub
 
-    Public Shared Function Create1D(ByVal n As Integer) As JuliaArray(Of T)
+    Public Shared Function Create1D(n As Integer) As JuliaArray(Of T)
         Dim type = GetType(T)
 
         If Not TypePair.ContainsKey(type.Name) Then
@@ -64,7 +64,7 @@ Public Class JuliaArray(Of T)
         Return New JuliaArray(Of T)(x)
     End Function
 
-    Public Shared Function Create2D(ByVal nr As Integer, ByVal nc As Integer) As JuliaArray(Of T)
+    Public Shared Function Create2D(nr As Integer, nc As Integer) As JuliaArray(Of T)
         Dim type = GetType(T)
 
         If Not TypePair.ContainsKey(type.Name) Then
@@ -114,11 +114,11 @@ Public Class JuliaArray(Of T)
         End Get
     End Property
 
-    Public Shared Widening Operator CType(ByVal ptr As IntPtr) As JuliaArray(Of T)
+    Public Shared Widening Operator CType(ptr As IntPtr) As JuliaArray(Of T)
         Return New JuliaArray(Of T)(ptr)
     End Operator
 
-    Public Shared Widening Operator CType(ByVal value As JuliaArray(Of T)) As IntPtr
+    Public Shared Widening Operator CType(value As JuliaArray(Of T)) As IntPtr
         Return value.GetHandle()
     End Operator
 

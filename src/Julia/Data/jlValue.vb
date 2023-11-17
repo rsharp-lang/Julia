@@ -9,7 +9,7 @@ Public Class JuliaValue(Of T As IConvertible)
         handle = IntPtr.Zero
     End Sub
 
-    Public Sub New(ByVal handle As IntPtr)
+    Public Sub New(handle As IntPtr)
         MyBase.New(handle, True)
         SetHandle(handle)
     End Sub
@@ -34,7 +34,7 @@ Public Class JuliaValue(Of T As IConvertible)
         End If
     End Function
 
-    Public Sub ReturnHandle(ByVal h As IntPtr)
+    Public Sub ReturnHandle(h As IntPtr)
         If h = handle AndAlso Not IsInvalid Then
             DangerousRelease()
         End If
@@ -59,17 +59,17 @@ Public Class JuliaValue(Of T As IConvertible)
         End Select
     End Function
 
-    Private Shared Function Box(ByVal value As Long) As JuliaValue(Of T)
+    Private Shared Function Box(value As Long) As JuliaValue(Of T)
         Dim p = JuliaNative.BoxInt64(value)
         Return New JuliaValue(Of T)(p)
     End Function
 
-    Private Shared Function Box(ByVal value As Double) As JuliaValue(Of T)
+    Private Shared Function Box(value As Double) As JuliaValue(Of T)
         Dim p = JuliaNative.BoxFloat64(value)
         Return New JuliaValue(Of T)(p)
     End Function
 
-    Public Shared Function Create(ByVal value As T) As JuliaValue(Of T)
+    Public Shared Function Create(value As T) As JuliaValue(Of T)
         Dim obj As Object = value
 
         Select Case value.GetType
@@ -82,19 +82,19 @@ Public Class JuliaValue(Of T As IConvertible)
         End Select
     End Function
 
-    Public Shared Widening Operator CType(ByVal ptr As IntPtr) As JuliaValue(Of T)
+    Public Shared Widening Operator CType(ptr As IntPtr) As JuliaValue(Of T)
         Return New JuliaValue(Of T)(ptr)
     End Operator
 
-    Public Shared Widening Operator CType(ByVal value As JuliaValue(Of T)) As IntPtr
+    Public Shared Widening Operator CType(value As JuliaValue(Of T)) As IntPtr
         Return value.GetHandle()
     End Operator
 
-    Public Shared Widening Operator CType(ByVal value As JuliaValue(Of T)) As T
+    Public Shared Widening Operator CType(value As JuliaValue(Of T)) As T
         Return value.Get()
     End Operator
 
-    Public Shared Widening Operator CType(ByVal value As T) As JuliaValue(Of T)
+    Public Shared Widening Operator CType(value As T) As JuliaValue(Of T)
         Return Create(value)
     End Operator
 End Class

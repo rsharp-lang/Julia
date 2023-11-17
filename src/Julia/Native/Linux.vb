@@ -8,11 +8,11 @@ Namespace Native
         Const RTLD_GLOBAL As Integer = &H100
 
         <DllImport("libdl")>
-        Private Shared Function dlopen(ByVal filename As String, ByVal flags As Integer) As IntPtr
+        Private Shared Function dlopen(filename As String, flags As Integer) As IntPtr
         End Function
 
         <DllImport("libdl")>
-        Protected Shared Function dlsym(ByVal handle As IntPtr, ByVal symbol As String) As IntPtr
+        Protected Shared Function dlsym(handle As IntPtr, symbol As String) As IntPtr
         End Function
 
         ''' <summary>
