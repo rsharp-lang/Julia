@@ -14,7 +14,8 @@ Namespace Native
         Friend Shared Julia As UnmanagedDll
         Friend Shared Type As jlType
 
-        Public Shared InitThreading As JuliaInitDelegate = Nothing
+        Friend Shared julia_init__threading As julia_init__threading = Nothing
+
         Public Shared AtExitHook As JuliaAtExitHookDelegate = Nothing
         Public Shared EvalString As JuliaEvalStringDelegate = Nothing
         Public Shared UnboxFloat64 As JuliaUnboxFloat64Delegate = Nothing
@@ -101,6 +102,8 @@ Namespace Native
             JuliaNative.jl_nothing_type = Julia.GetFunctionAddress("jl_nothing_type")
             JuliaNative.BaseModule = Julia.GetFunctionAddress("jl_base_module")
 
+            ' jl_init__threading function must be called at very first!
+            Call JuliaNative.julia_init__threading()
             Call JuliaNative.julia_gc_enable([on]:=1)
             Call JuliaNative.julia_gc_collect()
 

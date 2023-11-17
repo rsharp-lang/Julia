@@ -13,7 +13,7 @@ Namespace Native
     ''' <summary>
     ''' jl_init__threading
     ''' </summary>
-    Public Delegate Sub JuliaInitDelegate()
+    Public Delegate Sub julia_init__threading()
 
     ''' <summary>
     ''' jl_atexit_hook
