@@ -8,6 +8,10 @@ Imports SMRUCC.Julia.Native
 <Package(".interop")>
 Public Module Interop
 
+    Sub New()
+
+    End Sub
+
     ''' <summary>
     ''' try to start the julia environment
     ''' </summary>
