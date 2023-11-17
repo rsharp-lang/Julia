@@ -1,10 +1,10 @@
-Package: SMV
+Package: Julia
 Type: Package
-Title: X-ray data reader
+Title: Julia language and runtime
 Version: 1.0.148
 Author: xieguigang <xie.guigang@gcmodeller.org>
 Maintainer: xieguigang <xie.guigang@gcmodeller.org>
-Description: X-ray images reader, the "Super Marty View" or SMV format.
+Description: Julia language and runtime interop for .NET clr runtime and R# language.
 License: MIT License
 Encoding: UTF-8
 LazyData: true
