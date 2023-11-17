@@ -1,6 +1,6 @@
 ﻿Imports System.Runtime.InteropServices
 Imports System.Text
-Imports JuliaSharp.Native
+Imports SMRUCC.Julia.Native
 
 Public Class jlValue(Of T As IConvertible) : Inherits SafeHandle
 
@@ -74,9 +74,9 @@ Public Class jlValue(Of T As IConvertible) : Inherits SafeHandle
 
         Select Case value.GetType
             Case GetType(Double)
-                Return JuliaSharp.jlValue(Of T).Box(CDbl(obj))
+                Return jlValue(Of T).Box(CDbl(obj))
             Case GetType(Long)
-                Return JuliaSharp.jlValue(Of T).Box(CLng(obj))
+                Return jlValue(Of T).Box(CLng(obj))
             Case Else
                 Throw New System.ArgumentException("仅支持基本数据类型")
         End Select

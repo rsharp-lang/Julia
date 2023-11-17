@@ -1,5 +1,5 @@
-Imports JuliaSharp
-Imports JuliaSharp.Native
+Imports SMRUCC.Julia
+Imports SMRUCC.Julia.Native
 
 Module Program
     Sub Main(args As String())

@@ -1,5 +1,5 @@
 ﻿Imports System.Runtime.InteropServices
-Imports JuliaSharp.Native
+Imports SMRUCC.Julia.Native
 
 Public Class jlType
 

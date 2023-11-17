@@ -1,5 +1,5 @@
-﻿Imports JuliaSharp.Native.jl_cdecl
-Imports Microsoft.VisualBasic.ApplicationServices.DynamicInterop
+﻿Imports Microsoft.VisualBasic.ApplicationServices.DynamicInterop
+Imports SMRUCC.Julia.Native.jl_cdecl
 
 Namespace Native
 

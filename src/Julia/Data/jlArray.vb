@@ -1,7 +1,7 @@
 ﻿Imports System.Runtime.InteropServices
 Imports System.Text
-Imports JuliaSharp.Native
-Imports JuliaSharp.Native.jl_cdecl
+Imports SMRUCC.Julia.Native
+Imports SMRUCC.Julia.Native.jl_cdecl
 Imports size_t = System.UIntPtr
 
 Public Class jlArray(Of T) : Inherits SafeHandle
