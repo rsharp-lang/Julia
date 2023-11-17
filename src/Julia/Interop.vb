@@ -24,4 +24,14 @@ Public Module Interop
         Return Nothing
     End Function
 
+    <ExportAPI("jl_gc")>
+    Public Sub gc()
+        Call JuliaNative.julia_gc_collect()
+    End Sub
+
+    <ExportAPI("jl_exit")>
+    Public Sub close(Optional code As Integer = 0)
+        Call JuliaNative.AtExitHook(code)
+    End Sub
+
 End Module
