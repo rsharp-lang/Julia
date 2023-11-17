@@ -21,10 +21,6 @@ Namespace Native
             JuliaNative.ApplyArrayType = AddressOf Cdecl.Jl_apply_array_type
             JuliaNative.AllocArray1D = AddressOf Cdecl.Jl_alloc_array_1d
             JuliaNative.AllocArray2D = AddressOf Cdecl.Jl_alloc_array_2d
-
-            JuliaNative.Float64Type = GetProcAddress(JuliaNative.LibPtr, "jl_float64_type")
-            JuliaNative.Int64Type = GetProcAddress(JuliaNative.LibPtr, "jl_int64_type")
-            JuliaNative.BaseModule = GetProcAddress(JuliaNative.LibPtr, "jl_base_module")
         End Sub
     End Class
 End Namespace

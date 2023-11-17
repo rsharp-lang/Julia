@@ -46,16 +46,21 @@ Namespace Native
         ''' 2. filepath to the file ``libjulia.so`` on linux platform
         ''' </param>
         Public Shared Sub LoadDll(fileName As String)
-            julia = New UnmanagedDll(fileName)
+            julia = New UnmanagedDll(fileName, UnixLibraryLoader.RTLD_NOW Or UnixLibraryLoader.RTLD_GLOBAL)
             LibPtr = julia.LibraryHandle
 
             If RuntimeInformation.IsOSPlatform(OSPlatform.Windows) Then
                 Windows.LoadJulia(julia)
             ElseIf RuntimeInformation.IsOSPlatform(OSPlatform.Linux) Then
-                Linux.LoadJulia(fileName)
+                Linux.LoadJulia(julia)
             Else
                 Throw New NotImplementedException
             End If
+
+            ' get julia data type
+            JuliaNative.Float64Type = julia.GetFunctionAddress("jl_float64_type")
+            JuliaNative.Int64Type = julia.GetFunctionAddress("jl_int64_type")
+            JuliaNative.BaseModule = julia.GetFunctionAddress("jl_base_module")
         End Sub
 
         'struct JuliaModuleT
