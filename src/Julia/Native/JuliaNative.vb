@@ -47,9 +47,10 @@ Namespace Native
         ''' </param>
         Public Shared Sub LoadDll(fileName As String)
             julia = New UnmanagedDll(fileName)
+            LibPtr = julia.LibraryHandle
 
             If RuntimeInformation.IsOSPlatform(OSPlatform.Windows) Then
-                Windows.LoadJulia(fileName)
+                Windows.LoadJulia(julia)
             ElseIf RuntimeInformation.IsOSPlatform(OSPlatform.Linux) Then
                 Linux.LoadJulia(fileName)
             Else

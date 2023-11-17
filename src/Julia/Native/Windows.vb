@@ -8,8 +8,6 @@ Namespace Native
     Public Class Windows
 
         Public Shared Sub LoadJulia(libjulia As UnmanagedDll)
-            JuliaNative.LibPtr = LoadLibrary(libname)
-
             JuliaNative.InitThreading = AddressOf Cdecl.Jl_init__threading
             JuliaNative.AtExitHook = AddressOf Cdecl.Jl_atexit_hook
             JuliaNative.EvalString = AddressOf Cdecl.Jl_eval_string
