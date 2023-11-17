@@ -37,6 +37,66 @@ Namespace Native.jl_cdecl
         <DllImport(JuliaNative.LibraryName, EntryPoint:="jl_gc_is_enabled", CallingConvention:=CallingConvention.Cdecl)>
         Public Shared Function Jl_gc_is_enabled() As UInteger
         End Function
+
+        Public Enum JLGCCollection
+            JL_GC_AUTO = 0         ' use heuristics to determine the collection type
+            JL_GC_FULL = 1         ' force a full collection
+            JL_GC_INCREMENTAL = 2  ' force an incremental collection
+        End Enum
+
+        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Sub jl_gc_collect(ByVal c As JLGCCollection)
+        End Sub
+
+        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Sub jl_gc_add_finalizer(ByVal v As IntPtr, ByVal f As IntPtr)
+        End Sub
+
+        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Sub jl_gc_add_ptr_finalizer(ByVal ptls As IntPtr, ByVal v As IntPtr, ByVal f As IntPtr)
+        End Sub
+
+        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Sub jl_finalize(ByVal o As IntPtr)
+        End Sub
+
+        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Function jl_gc_new_weakref(ByVal value As IntPtr) As IntPtr
+        End Function
+
+        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Function jl_gc_alloc_0w() As IntPtr
+        End Function
+
+        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Function jl_gc_alloc_1w() As IntPtr
+        End Function
+
+        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Function jl_gc_alloc_2w() As IntPtr
+        End Function
+
+        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Function jl_gc_alloc_3w() As IntPtr
+        End Function
+
+        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Sub jl_gc_use(ByVal a As IntPtr)
+        End Sub
+
+        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Sub jl_clear_malloc_data()
+        End Sub
 #End Region
+
+        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Function jl_subtype(ByVal a As IntPtr, ByVal b As IntPtr) As Integer
+        End Function
+
+        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Function jl_isa(ByVal a As IntPtr, ByVal t As IntPtr) As Integer
+        End Function
+
+
     End Class
 End Namespace

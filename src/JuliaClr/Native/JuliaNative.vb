@@ -12,7 +12,7 @@ Namespace Native
 
         Friend Shared LibPtr As IntPtr = IntPtr.Zero
         Friend Shared Julia As UnmanagedDll
-        Friend Shared Type As jlType
+        Friend Shared Type As JuliaType
 
         Friend Shared julia_init__threading As julia_init__threading = Nothing
 
@@ -107,7 +107,7 @@ Namespace Native
             Call JuliaNative.julia_gc_enable([on]:=1)
             Call JuliaNative.julia_gc_collect()
 
-            Type = New jlType
+            Type = New JuliaType
         End Sub
 
         'struct JuliaModuleT
