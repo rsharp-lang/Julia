@@ -34,6 +34,7 @@ Module Program
         Console.WriteLine(de)
 
         JuliaNative.AtExitHook(0)
-        Console.Read()
+
+        Pause()
     End Sub
 End Module
