@@ -8,4 +8,10 @@ declare namespace Julia {
       */
       function onLoad(): object;
    }
+   /**
+   */
+   function __libjulia_env(): object;
+   /**
+   */
+   function jl(script: any): object;
 }
