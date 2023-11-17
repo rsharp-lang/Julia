@@ -1,6 +1,6 @@
-﻿Imports System
-Imports System.Runtime.InteropServices
+﻿Imports System.Runtime.InteropServices
 Imports System.Text
+Imports JuliaSharp.Native
 
 Public Class JuliaValue(Of T As IConvertible)
     Inherits SafeHandle

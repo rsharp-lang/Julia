@@ -1,5 +1,6 @@
 ﻿Imports System.Runtime.InteropServices
 Imports System.Text
+Imports JuliaSharp.Native
 Imports size_t = System.UIntPtr
 
 Public Class JuliaArray(Of T)
