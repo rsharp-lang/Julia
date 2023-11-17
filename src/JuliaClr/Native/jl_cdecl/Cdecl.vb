@@ -36,10 +36,6 @@ Namespace Native.jl_cdecl
         Friend Shared Function Jl_symbol(<MarshalAs(UnmanagedType.LPStr)> str As String) As IntPtr
         End Function
 
-        <DllImport(JuliaNative.LibraryName, EntryPoint:="jl_call1", CallingConvention:=CallingConvention.Cdecl)>
-        Friend Shared Function Jl_call1(f As IntPtr, a As IntPtr) As IntPtr
-        End Function
-
         <DllImport(JuliaNative.LibraryName, EntryPoint:="jl_apply_array_type", CallingConvention:=CallingConvention.Cdecl)>
         Friend Shared Function Jl_apply_array_type(type As IntPtr, [dim] As ULong) As IntPtr
         End Function

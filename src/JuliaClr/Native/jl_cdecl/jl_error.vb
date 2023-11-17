@@ -60,5 +60,25 @@ Namespace Native.jl_cdecl
         <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
         Public Shared Sub jl_eof_error()
         End Sub
+
+        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Sub jl_throw(e As IntPtr)
+        End Sub
+
+        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Sub jl_rethrow()
+        End Sub
+
+        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Sub jl_sig_throw()
+        End Sub
+
+        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Sub jl_rethrow_other(e As IntPtr)
+        End Sub
+
+        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Sub jl_no_exc_handler(e As IntPtr)
+        End Sub
     End Class
 End Namespace
