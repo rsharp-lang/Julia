@@ -16,26 +16,27 @@ Namespace Native
 
         Friend Shared julia_init__threading As julia_init__threading = Nothing
 
-        Public Shared AtExitHook As julia_atexit_hook = Nothing
+        Public Shared julia_atexit_hook As julia_atexit_hook = Nothing
         Public Shared julia_eval_string As julia_eval_string = Nothing
-        Public Shared UnboxFloat64 As julia_unbox_float64 = Nothing
-        Public Shared BoxFloat64 As julia_box_float64 = Nothing
-        Public Shared UnboxInt64 As julia_unbox_int64 = Nothing
-        Public Shared BoxInt64 As julia_box_int64 = Nothing
-        Public Shared GetGlobal As julia_get_global = Nothing
-        Public Shared Symbol As julia_symbol = Nothing
-        Public Shared ReadOnly GetFunction As JuliaGetFunctionDelegate = AddressOf JuliaGetFunction
-        Public Shared Call1 As julia_call1 = Nothing
-        Public Shared ApplyArrayType As julia_apply_array_type = Nothing
-        Public Shared AllocArray1D As julia_alloc_array_1d = Nothing
-        Public Shared AllocArray2D As julia_alloc_array_2d = Nothing
+        Public Shared julia_unbox_float64 As julia_unbox_float64 = Nothing
+        Public Shared julia_box_float64 As julia_box_float64 = Nothing
+        Public Shared julia_unbox_int64 As julia_unbox_int64 = Nothing
+        Public Shared julia_box_int64 As julia_box_int64 = Nothing
+        Public Shared julia_get_global As julia_get_global = Nothing
+        Public Shared julia_symbol As julia_symbol = Nothing
+        Public Shared julia_call1 As julia_call1 = Nothing
+        Public Shared julia_apply_array_type As julia_apply_array_type = Nothing
+        Public Shared julia_alloc_array_1d As julia_alloc_array_1d = Nothing
+        Public Shared julia_alloc_array_2d As julia_alloc_array_2d = Nothing
 
         Public Shared julia_gc_collect As julia_gc_collect
         Public Shared julia_gc_enable As julia_gc_enable
 
+        Public Shared ReadOnly julia_get_function As JuliaGetFunctionDelegate = AddressOf JuliaGetFunction
+
         Private Shared Function JuliaGetFunction(m As IntPtr, name As String) As IntPtr
-            Dim bstr = Symbol(name)
-            Dim f = GetGlobal(m, bstr)
+            Dim bstr = julia_symbol(name)
+            Dim f = julia_get_global(m, bstr)
 
             Return f
         End Function

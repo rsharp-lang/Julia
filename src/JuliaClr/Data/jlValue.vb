@@ -41,11 +41,11 @@ Public Class jlValue(Of T As IConvertible) : Inherits SafeHandle
     End Sub
 
     Public Function GetInt64() As Long
-        Return JuliaNative.UnboxInt64(handle)
+        Return JuliaNative.julia_unbox_int64(handle)
     End Function
 
     Public Function GetFloat64() As Double
-        Return JuliaNative.UnboxFloat64(handle)
+        Return JuliaNative.julia_unbox_float64(handle)
     End Function
 
     Public Function [Get]() As T
@@ -60,12 +60,12 @@ Public Class jlValue(Of T As IConvertible) : Inherits SafeHandle
     End Function
 
     Private Shared Function Box(value As Long) As jlValue(Of T)
-        Dim p = JuliaNative.BoxInt64(value)
+        Dim p = JuliaNative.julia_box_int64(value)
         Return New jlValue(Of T)(p)
     End Function
 
     Private Shared Function Box(value As Double) As jlValue(Of T)
-        Dim p = JuliaNative.BoxFloat64(value)
+        Dim p = JuliaNative.julia_box_float64(value)
         Return New jlValue(Of T)(p)
     End Function
 

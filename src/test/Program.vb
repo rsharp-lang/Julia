@@ -31,7 +31,7 @@ Module Program
         Dim de As jlArray(Of Long) = JuliaNative.julia_eval_string("ones(Int64, 2, 2)")
         Console.WriteLine(de)
 
-        JuliaNative.AtExitHook(0)
+        JuliaNative.julia_atexit_hook(0)
 
         Pause()
     End Sub

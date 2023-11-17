@@ -37,7 +37,7 @@ Public Module Interop
 
     <ExportAPI("jl_exit")>
     Public Sub close(Optional code As Integer = 0)
-        Call JuliaNative.AtExitHook(code)
+        Call JuliaNative.julia_atexit_hook(code)
     End Sub
 
     <ExportAPI("jl_eval_string")>
