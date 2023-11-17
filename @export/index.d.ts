@@ -13,5 +13,8 @@ declare namespace Julia {
    function __libjulia_env(): object;
    /**
    */
+   function __libjulia_win_nt(): object;
+   /**
+   */
    function jl(script: any): object;
 }
