@@ -6,7 +6,6 @@ Module Program
 
         JuliaNative.LoadDll("C:\Users\Administrator\AppData\Local\Programs\Julia-1.9.4\bin\libjulia.dll")
 
-        ' JuliaNative.InitThreading()
         JuliaNative.julia_eval_string("println(123)")
 
         Dim r As jlValue(Of Double) = JuliaNative.julia_eval_string("sqrt(2.0)")
