@@ -1,4 +1,4 @@
-imports "Interop" from "Julia";
+imports "interop" from "Julia";
 
 const .onLoad = function() {
     
