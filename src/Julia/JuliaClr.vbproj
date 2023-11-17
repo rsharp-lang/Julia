@@ -4,7 +4,12 @@
     <TargetFramework>net6.0</TargetFramework>    
     <Platforms>AnyCPU;x64</Platforms>    
     <RootNamespace>SMRUCC.Julia</RootNamespace>    
-    <AssemblyName>JuliaClr</AssemblyName>
+    <AssemblyName>JuliaClr</AssemblyName>    
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>    
+    <Title>Interop of Julia language and runtime for .NET clr and R# language</Title>    
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>    
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>    
+    <IncludeSymbols>True</IncludeSymbols>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>

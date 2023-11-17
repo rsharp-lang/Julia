@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34302.85
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "Julia", "Julia\Julia.vbproj", "{699CC162-FB80-4736-BD54-8C071CBFC953}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "JuliaClr", "Julia\JuliaClr.vbproj", "{699CC162-FB80-4736-BD54-8C071CBFC953}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "framework", "framework", "{04203DA7-510E-4594-9216-87AF55DE384F}"
 EndProject
