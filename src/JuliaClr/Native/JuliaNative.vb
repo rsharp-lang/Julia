@@ -16,19 +16,19 @@ Namespace Native
 
         Friend Shared julia_init__threading As julia_init__threading = Nothing
 
-        Public Shared AtExitHook As JuliaAtExitHookDelegate = Nothing
+        Public Shared AtExitHook As julia_atexit_hook = Nothing
         Public Shared julia_eval_string As julia_eval_string = Nothing
-        Public Shared UnboxFloat64 As JuliaUnboxFloat64Delegate = Nothing
-        Public Shared BoxFloat64 As JuliaBoxFloat64Delegate = Nothing
-        Public Shared UnboxInt64 As JuliaUnboxInt64Delegate = Nothing
-        Public Shared BoxInt64 As JuliaBoxInt64Delegate = Nothing
-        Public Shared GetGlobal As JuliaGetGlobalDelegate = Nothing
-        Public Shared Symbol As JuliaSymbolDelegate = Nothing
+        Public Shared UnboxFloat64 As julia_unbox_float64 = Nothing
+        Public Shared BoxFloat64 As julia_box_float64 = Nothing
+        Public Shared UnboxInt64 As julia_unbox_int64 = Nothing
+        Public Shared BoxInt64 As julia_box_int64 = Nothing
+        Public Shared GetGlobal As julia_get_global = Nothing
+        Public Shared Symbol As julia_symbol = Nothing
         Public Shared ReadOnly GetFunction As JuliaGetFunctionDelegate = AddressOf JuliaGetFunction
-        Public Shared Call1 As JuliaCall1Delegate = Nothing
-        Public Shared ApplyArrayType As JuliaApplyArrayTypeDelegate = Nothing
-        Public Shared AllocArray1D As JuliaAllocArray1DDelegate = Nothing
-        Public Shared AllocArray2D As JuliaAllocArray2DDelegate = Nothing
+        Public Shared Call1 As julia_call1 = Nothing
+        Public Shared ApplyArrayType As julia_apply_array_type = Nothing
+        Public Shared AllocArray1D As julia_alloc_array_1d = Nothing
+        Public Shared AllocArray2D As julia_alloc_array_2d = Nothing
 
         Public Shared julia_gc_collect As julia_gc_collect
         Public Shared julia_gc_enable As julia_gc_enable

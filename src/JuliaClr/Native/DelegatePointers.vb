@@ -19,7 +19,7 @@ Namespace Native
     ''' jl_atexit_hook
     ''' </summary>
     ''' <param name="status"></param>
-    Public Delegate Sub JuliaAtExitHookDelegate(status As Integer)
+    Public Delegate Sub julia_atexit_hook(status As Integer)
 
     ''' <summary>
     ''' jl_eval_string
@@ -33,28 +33,28 @@ Namespace Native
     ''' </summary>
     ''' <param name="v"></param>
     ''' <returns></returns>
-    Public Delegate Function JuliaUnboxFloat64Delegate(v As IntPtr) As Double
+    Public Delegate Function julia_unbox_float64(v As IntPtr) As Double
 
     ''' <summary>
     ''' jl_box_float64
     ''' </summary>
     ''' <param name="x"></param>
     ''' <returns></returns>
-    Public Delegate Function JuliaBoxFloat64Delegate(x As Double) As IntPtr
+    Public Delegate Function julia_box_float64(x As Double) As IntPtr
 
     ''' <summary>
     ''' jl_unbox_int64
     ''' </summary>
     ''' <param name="v"></param>
     ''' <returns></returns>
-    Public Delegate Function JuliaUnboxInt64Delegate(v As IntPtr) As Long
+    Public Delegate Function julia_unbox_int64(v As IntPtr) As Long
 
     ''' <summary>
     ''' jl_box_int64
     ''' </summary>
     ''' <param name="x"></param>
     ''' <returns></returns>
-    Public Delegate Function JuliaBoxInt64Delegate(x As Long) As IntPtr
+    Public Delegate Function julia_box_int64(x As Long) As IntPtr
 
     ''' <summary>
     ''' jl_get_global
@@ -62,14 +62,14 @@ Namespace Native
     ''' <param name="m"></param>
     ''' <param name="var"></param>
     ''' <returns></returns>
-    Public Delegate Function JuliaGetGlobalDelegate(m As IntPtr, var As IntPtr) As IntPtr
+    Public Delegate Function julia_get_global(m As IntPtr, var As IntPtr) As IntPtr
 
     ''' <summary>
     ''' jl_symbol
     ''' </summary>
     ''' <param name="str"></param>
     ''' <returns></returns>
-    Public Delegate Function JuliaSymbolDelegate(<MarshalAs(UnmanagedType.LPStr)> str As String) As IntPtr
+    Public Delegate Function julia_symbol(<MarshalAs(UnmanagedType.LPStr)> str As String) As IntPtr
 
     ''' <summary>
     ''' jl_call1
@@ -77,7 +77,7 @@ Namespace Native
     ''' <param name="f"></param>
     ''' <param name="a"></param>
     ''' <returns></returns>
-    Public Delegate Function JuliaCall1Delegate(f As IntPtr, a As IntPtr) As IntPtr
+    Public Delegate Function julia_call1(f As IntPtr, a As IntPtr) As IntPtr
 
     ''' <summary>
     ''' jl_apply_array_type
@@ -85,7 +85,7 @@ Namespace Native
     ''' <param name="type"></param>
     ''' <param name="[dim]"></param>
     ''' <returns></returns>
-    Public Delegate Function JuliaApplyArrayTypeDelegate(type As IntPtr, [dim] As ULong) As IntPtr
+    Public Delegate Function julia_apply_array_type(type As IntPtr, [dim] As ULong) As IntPtr
 
     ''' <summary>
     ''' jl_alloc_array_1d
@@ -93,7 +93,7 @@ Namespace Native
     ''' <param name="atype"></param>
     ''' <param name="nr"></param>
     ''' <returns></returns>
-    Public Delegate Function JuliaAllocArray1DDelegate(atype As IntPtr, nr As size_t) As IntPtr
+    Public Delegate Function julia_alloc_array_1d(atype As IntPtr, nr As size_t) As IntPtr
 
     ''' <summary>
     ''' jl_alloc_array_2d
@@ -102,6 +102,6 @@ Namespace Native
     ''' <param name="nr"></param>
     ''' <param name="nc"></param>
     ''' <returns></returns>
-    Public Delegate Function JuliaAllocArray2DDelegate(atype As IntPtr, nr As size_t, nc As size_t) As IntPtr
+    Public Delegate Function julia_alloc_array_2d(atype As IntPtr, nr As size_t, nc As size_t) As IntPtr
 
 End Namespace
