@@ -9,6 +9,7 @@ Namespace Native
 
         Friend Shared LibPtr As IntPtr = IntPtr.Zero
         Friend Shared julia As UnmanagedDll
+        Friend Shared type As jlType
 
         Public Shared InitThreading As JuliaInitDelegate = Nothing
         Public Shared AtExitHook As JuliaAtExitHookDelegate = Nothing
@@ -61,6 +62,8 @@ Namespace Native
             JuliaNative.Float64Type = julia.GetFunctionAddress("jl_float64_type")
             JuliaNative.Int64Type = julia.GetFunctionAddress("jl_int64_type")
             JuliaNative.BaseModule = julia.GetFunctionAddress("jl_base_module")
+
+            type = New jlType
         End Sub
 
         'struct JuliaModuleT

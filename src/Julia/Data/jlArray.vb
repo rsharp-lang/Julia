@@ -5,12 +5,12 @@ Imports size_t = System.UIntPtr
 
 Public Class jlArray(Of T) : Inherits SafeHandle
 
+    ReadOnly struc As jl_array_t
+
     Private Sub New()
         MyBase.New(IntPtr.Zero, True)
         handle = IntPtr.Zero
     End Sub
-
-    Private struc As jl_array_t
 
     Public Sub New(handle As IntPtr)
         MyBase.New(handle, True)
@@ -45,30 +45,18 @@ Public Class jlArray(Of T) : Inherits SafeHandle
     End Sub
 
     Public Shared Function Create1D(n As Integer) As jlArray(Of T)
-        Dim type = GetType(T)
-
-        If Not TypePair.ContainsKey(type.Name) Then
-            Throw New ArgumentException("仅支持基本数据类型")
-        End If
-
-        Dim elementType = TypePair(type.Name)
-        Dim dimension As ULong = 1
-        Dim arrartype = JuliaNative.ApplyArrayType(elementType, dimension)
+        Dim elementType = JuliaNative.type.GetType(Of T)
+        Dim arrartype = JuliaNative.ApplyArrayType(elementType, 1)
         Dim x = JuliaNative.AllocArray1D(arrartype, CType(n, size_t))
+
         Return New jlArray(Of T)(x)
     End Function
 
     Public Shared Function Create2D(nr As Integer, nc As Integer) As jlArray(Of T)
-        Dim type = GetType(T)
-
-        If Not TypePair.ContainsKey(type.Name) Then
-            Throw New ArgumentException("仅支持基本数据类型")
-        End If
-
-        Dim elementType = TypePair(type.Name)
-        Dim dimension = 2
-        Dim arrartype = JuliaNative.ApplyArrayType(elementType, dimension)
+        Dim elementType = JuliaNative.type.GetType(Of T)
+        Dim arrartype = JuliaNative.ApplyArrayType(elementType, 2)
         Dim x = JuliaNative.AllocArray2D(arrartype, CType(nr, size_t), CType(nc, size_t))
+
         Return New jlArray(Of T)(x)
     End Function
 
@@ -142,50 +130,3 @@ Public Class jlArray(Of T) : Inherits SafeHandle
     End Function
 End Class
 
-<StructLayout(LayoutKind.Sequential)>
-Public Structure jl_array_t
-    Public data As IntPtr
-    Public length As size_t
-    Public flags As jl_array_flags_t
-    Public elsize As UShort
-    Public offset As UInteger
-    Public nrows As size_t
-    'public size_t maxsize;// 1d
-    Public ncols As size_t ' Nd
-End Structure
-
-<StructLayout(LayoutKind.Sequential)>
-Public Structure jl_array_flags_t
-    Public aggr_byte As UShort
-
-    Public ReadOnly Property how As UShort
-        Get
-            Return aggr_byte And &H3
-        End Get
-    End Property
-    Public ReadOnly Property ndims As UShort
-        Get
-            Return aggr_byte >> 2 And &H3FF
-        End Get
-    End Property
-    Public ReadOnly Property pooled As UShort
-        Get
-            Return aggr_byte >> 12 And &H1
-        End Get
-    End Property
-    Public ReadOnly Property ptarray As UShort
-        Get
-            Return aggr_byte >> 13 And &H1
-        End Get
-    End Property
-    Public ReadOnly Property isshared As UShort
-        Get
-            Return aggr_byte >> 14 And &H1
-        End Get
-    End Property
-    Public ReadOnly Property isaligned As UShort
-        Get
-            Return aggr_byte >> 15 And &H1
-        End Get
-    End Property
-End Structure

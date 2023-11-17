@@ -49,10 +49,10 @@ Public Class jlValue(Of T As IConvertible) : Inherits SafeHandle
     End Function
 
     Public Function [Get]() As T
-        Select Case GetType(T).Name
-            Case "Double"
+        Select Case GetType(T)
+            Case GetType(Double)
                 Return CType(Convert.ChangeType(GetFloat64(), GetType(T)), T)
-            Case "Int64"
+            Case GetType(Int64)
                 Return CType(Convert.ChangeType(GetInt64(), GetType(T)), T)
             Case Else
                 Throw New ArgumentException("仅支持基本数据类型")

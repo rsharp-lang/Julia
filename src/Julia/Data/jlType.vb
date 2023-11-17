@@ -8,6 +8,15 @@ Public Class jlType
         {GetType(Long), Marshal.ReadIntPtr(JuliaNative.Int64Type)}
     }
 
+    ''' <summary>
+    ''' initialize the julia type system required of load of the handles:
+    ''' 
+    ''' + <see cref="JuliaNative.Float64Type"/>
+    ''' + <see cref="JuliaNative.Int64Type"/>
+    ''' </summary>
+    Sub New()
+    End Sub
+
     Public Overloads Function [GetType](Of T)() As IntPtr
         If index.ContainsKey(GetType(T)) Then
             Return index(GetType(T))

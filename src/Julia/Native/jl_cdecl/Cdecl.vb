@@ -1,7 +1,7 @@
 ﻿Imports System.Runtime.InteropServices
 Imports size_t = System.UIntPtr
 
-Namespace Native
+Namespace Native.jl_cdecl
 
     ''' <summary>
     ''' imports julia C declare
