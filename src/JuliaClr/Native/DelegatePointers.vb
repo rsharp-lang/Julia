@@ -4,6 +4,13 @@ Imports size_t = System.UIntPtr
 Namespace Native
 
     ''' <summary>
+    ''' jl_gc_collect()
+    ''' </summary>
+    Public Delegate Sub julia_gc_collect()
+
+    Public Delegate Function julia_gc_enable([on] As UInteger) As UInteger
+
+    ''' <summary>
     ''' jl_init__threading
     ''' </summary>
     Public Delegate Sub JuliaInitDelegate()

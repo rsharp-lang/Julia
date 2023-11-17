@@ -30,7 +30,7 @@ Namespace Native.Platform.clr
             Dim native_ptr As IntPtr
 
             For Each map In forwards
-                native_ptr = map.d.GetValue(Nothing)
+                native_ptr = DirectCast(map.d.GetValue(Nothing), IntPtr)
                 native_ptr = Marshal.ReadIntPtr(native_ptr)
                 index(map.forward.clr) = native_ptr
             Next

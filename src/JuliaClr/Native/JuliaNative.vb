@@ -29,6 +29,9 @@ Namespace Native
         Public Shared AllocArray1D As JuliaAllocArray1DDelegate = Nothing
         Public Shared AllocArray2D As JuliaAllocArray2DDelegate = Nothing
 
+        Public Shared julia_gc_collect As julia_gc_collect
+        Public Shared julia_gc_enable As julia_gc_enable
+
         Private Shared Function JuliaGetFunction(m As IntPtr, name As String) As IntPtr
             Dim bstr = Symbol(name)
             Dim f = GetGlobal(m, bstr)
@@ -97,6 +100,9 @@ Namespace Native
             JuliaNative.jl_void_type = Julia.GetFunctionAddress("jl_void_type")
             JuliaNative.jl_nothing_type = Julia.GetFunctionAddress("jl_nothing_type")
             JuliaNative.BaseModule = Julia.GetFunctionAddress("jl_base_module")
+
+            Call JuliaNative.julia_gc_enable([on]:=1)
+            Call JuliaNative.julia_gc_collect()
 
             Type = New jlType
         End Sub

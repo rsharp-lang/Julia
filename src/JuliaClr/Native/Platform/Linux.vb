@@ -29,6 +29,9 @@ Namespace Native.Platform
             JuliaNative.ApplyArrayType = Marshal.GetDelegateForFunctionPointer(Of Native.JuliaApplyArrayTypeDelegate)(julia_so.GetFunctionAddress("jl_apply_array_type"))
             JuliaNative.AllocArray1D = Marshal.GetDelegateForFunctionPointer(Of Native.JuliaAllocArray1DDelegate)(julia_so.GetFunctionAddress("jl_alloc_array_1d"))
             JuliaNative.AllocArray2D = Marshal.GetDelegateForFunctionPointer(Of Native.JuliaAllocArray2DDelegate)(julia_so.GetFunctionAddress("jl_alloc_array_2d"))
+
+            JuliaNative.julia_gc_collect = Marshal.GetDelegateForFunctionPointer(Of Native.julia_gc_collect)(julia_so.GetFunctionAddress("jl_gc_collect"))
+            JuliaNative.julia_gc_enable = Marshal.GetDelegateForFunctionPointer(Of Native.julia_gc_enable)(julia_so.GetFunctionAddress("jl_gc_enable"))
         End Sub
     End Class
 End Namespace

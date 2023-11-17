@@ -22,6 +22,9 @@ Namespace Native.Platform
             JuliaNative.ApplyArrayType = AddressOf Cdecl.Jl_apply_array_type
             JuliaNative.AllocArray1D = AddressOf Cdecl.Jl_alloc_array_1d
             JuliaNative.AllocArray2D = AddressOf Cdecl.Jl_alloc_array_2d
+
+            JuliaNative.julia_gc_collect = AddressOf Cdecl.Jl_gc_collect
+            JuliaNative.julia_gc_enable = AddressOf Cdecl.Jl_gc_enable
         End Sub
     End Class
 End Namespace

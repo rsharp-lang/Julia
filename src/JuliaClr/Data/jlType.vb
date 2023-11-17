@@ -1,10 +1,11 @@
-﻿Imports System.Runtime.InteropServices
+﻿Imports System.Runtime.CompilerServices
+Imports System.Runtime.InteropServices
 Imports SMRUCC.Julia.Native
 Imports SMRUCC.Julia.Native.Platform.clr
 
 Public Class jlType
 
-    ReadOnly index As Dictionary(Of Type, IntPtr)
+    ReadOnly index As New Dictionary(Of Type, IntPtr)
 
     ''' <summary>
     ''' initialize the julia type system required of load of the handles:
@@ -24,6 +25,7 @@ Public Class jlType
         End If
     End Function
 
+    <MethodImpl(MethodImplOptions.AggressiveInlining)>
     Private Shared Function err(t As Type) As Exception
         Return New InvalidComObjectException(t.FullName)
     End Function

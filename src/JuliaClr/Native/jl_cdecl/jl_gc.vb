@@ -13,8 +13,8 @@ Namespace Native.jl_cdecl
         ''' Force a GC run
         ''' </summary>
         <DllImport(JuliaNative.LibraryName, EntryPoint:="jl_gc_collect", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_gc_collect()
-        End Sub
+        Public Shared Function Jl_gc_collect() As UInteger
+        End Function
 
         ''' <summary>
         ''' Enable/Disable the GC, return previous state as int
@@ -26,7 +26,7 @@ Namespace Native.jl_cdecl
         ''' <returns></returns>
         ''' 
         <DllImport(JuliaNative.LibraryName, EntryPoint:="jl_gc_enable", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_gc_enable([on] As Integer) As Integer
+        Public Shared Function Jl_gc_enable([on] As UInteger) As UInteger
         End Function
 
         ''' <summary>
@@ -35,7 +35,7 @@ Namespace Native.jl_cdecl
         ''' <returns></returns>
         ''' 
         <DllImport(JuliaNative.LibraryName, EntryPoint:="jl_gc_is_enabled", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_gc_is_enabled() As Integer
+        Public Shared Function Jl_gc_is_enabled() As UInteger
         End Function
 #End Region
     End Class
