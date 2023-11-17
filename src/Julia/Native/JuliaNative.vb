@@ -8,36 +8,14 @@ Namespace Native
 
         Friend Shared LibPtr As IntPtr = IntPtr.Zero
 
-        Shared Sub New()
-            Debug.WriteLine("OSArchitecture:{0}", RuntimeInformation.OSArchitecture)
-
-            Try
-                Dim arch = "x64"
-                If RuntimeInformation.OSArchitecture = Architecture.X64 Then
-                    '仅支持64位
-                    arch = "x64"
-                Else
-                    Debug.WriteLine("仅支持64位")
-                End If
-
-                If RuntimeInformation.IsOSPlatform(OSPlatform.Windows) Then
-
-                    Windows.LoadJulia("")
-
-                ElseIf RuntimeInformation.IsOSPlatform(OSPlatform.Linux) Then
-                    Linux.LoadJulia("")
-                Else
-                    Debug.WriteLine("仅支持Windows和Linux")
-                End If
-
-                If LibPtr <> IntPtr.Zero Then
-                    Debug.WriteLine("加载Julia成功!")
-                Else
-                    Throw New BadImageFormatException("加载Julia失败")
-                End If
-            Catch ex As Exception
-                Throw New BadImageFormatException(ex.Message)
-            End Try
+        Public Shared Sub LoadDll(fileName As String)
+            If RuntimeInformation.IsOSPlatform(OSPlatform.Windows) Then
+                Windows.LoadJulia(fileName)
+            ElseIf RuntimeInformation.IsOSPlatform(OSPlatform.Linux) Then
+                Linux.LoadJulia(fileName)
+            Else
+                Throw New NotImplementedException
+            End If
         End Sub
 
         Public Delegate Sub JuliaInitDelegate()
