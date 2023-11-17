@@ -8,6 +8,17 @@
 */
 declare namespace .interop {
    /**
+     * @param env default value Is ``null``.
+   */
+   function jl_eval_string(expr: any, env?: object): any;
+   /**
+     * @param code default value Is ``0``.
+   */
+   function jl_exit(code?: object): ;
+   /**
+   */
+   function jl_gc(): ;
+   /**
    */
    function start_jl(libjulia: string): any;
 }
