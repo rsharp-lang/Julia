@@ -18,8 +18,8 @@ Module Program
         Dim s3 As Long = s2
         Console.WriteLine($"{s3}")
 
-        Dim da = JuliaArray(Of Double).Create1D(10)
-        Console.WriteLine(da)
+        'Dim da = JuliaArray(Of Double).Create1D(10)
+        'Console.WriteLine(da)
 
         Dim db As JuliaArray(Of Double) = JuliaNative.EvalString("rand(1,3)")
         Console.WriteLine(db)

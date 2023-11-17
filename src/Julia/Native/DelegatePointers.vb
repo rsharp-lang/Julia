@@ -80,7 +80,7 @@ Namespace Native
     ''' <param name="type"></param>
     ''' <param name="[dim]"></param>
     ''' <returns></returns>
-    Public Delegate Function JuliaApplyArrayTypeDelegate(type As IntPtr, [dim] As size_t) As IntPtr
+    Public Delegate Function JuliaApplyArrayTypeDelegate(type As IntPtr, [dim] As ULong) As IntPtr
 
     ''' <summary>
     ''' jl_alloc_array_1d

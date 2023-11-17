@@ -88,7 +88,7 @@ Namespace Native
 
 
         <DllImport(LibraryName, EntryPoint:="jl_apply_array_type", CallingConvention:=CallingConvention.Cdecl)>
-        Friend Shared Function Jl_apply_array_type(type As IntPtr, [dim] As size_t) As IntPtr
+        Friend Shared Function Jl_apply_array_type(type As IntPtr, [dim] As ULong) As IntPtr
         End Function
         Public Shared ApplyArrayType As JuliaApplyArrayTypeDelegate = Nothing
 

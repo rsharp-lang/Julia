@@ -6,9 +6,9 @@ Imports size_t = System.UIntPtr
 Public Class JuliaArray(Of T)
     Inherits SafeHandle
 
-    Private Shared TypePair As Dictionary(Of String, IntPtr) = New Dictionary(Of String, IntPtr)() From {
-{"Double", JuliaNative.Float64Type},
-{"Int64", JuliaNative.Int64Type}
+    Private Shared TypePair As New Dictionary(Of String, IntPtr)() From {
+{"Double", Marshal.ReadIntPtr(JuliaNative.Float64Type)},
+{"Int64", Marshal.ReadIntPtr(JuliaNative.Int64Type)}
 }
 
     Private Sub New()
@@ -58,7 +58,7 @@ Public Class JuliaArray(Of T)
         End If
 
         Dim elementType = TypePair(type.Name)
-        Dim dimension = CType(1, size_t)
+        Dim dimension As ULong = 1
         Dim arrartype = JuliaNative.ApplyArrayType(elementType, dimension)
         Dim x = JuliaNative.AllocArray1D(arrartype, CType(n, size_t))
         Return New JuliaArray(Of T)(x)
@@ -123,7 +123,7 @@ Public Class JuliaArray(Of T)
     End Operator
 
     Public Overrides Function ToString() As String
-        Dim sb As StringBuilder = New StringBuilder()
+        Dim sb As New StringBuilder()
         Dim rs = Me.GetSpan()
         Dim ncols = Me.Ncols
 
