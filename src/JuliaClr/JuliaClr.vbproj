@@ -9,7 +9,8 @@
     <Title>Interop of Julia language and runtime for .NET clr and R# language</Title>    
     <PackageLicenseExpression>MIT</PackageLicenseExpression>    
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>    
-    <IncludeSymbols>True</IncludeSymbols>
+    <IncludeSymbols>True</IncludeSymbols>    
+    <PackageIcon>julia.png</PackageIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -31,6 +32,12 @@
     <DebugSymbols>false</DebugSymbols>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\julia.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Memory" Version="4.5.1" />
   </ItemGroup>
