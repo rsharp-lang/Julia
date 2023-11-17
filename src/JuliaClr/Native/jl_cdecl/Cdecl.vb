@@ -21,101 +21,101 @@ Namespace Native.jl_cdecl
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_string_ptr(ByVal v As IntPtr) As IntPtr
+        Public Shared Function jl_string_ptr(v As IntPtr) As IntPtr
         End Function
 
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_unbox_float64(ByVal t As IntPtr) As Double
+        Public Shared Function jl_unbox_float64(t As IntPtr) As Double
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_unbox_float32(ByVal t As IntPtr) As Single
+        Public Shared Function jl_unbox_float32(t As IntPtr) As Single
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_unbox_int32(ByVal t As IntPtr) As Integer
+        Public Shared Function jl_unbox_int32(t As IntPtr) As Integer
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_unbox_int16(ByVal t As IntPtr) As Short
+        Public Shared Function jl_unbox_int16(t As IntPtr) As Short
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_unbox_int8(ByVal t As IntPtr) As SByte
+        Public Shared Function jl_unbox_int8(t As IntPtr) As SByte
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_unbox_bool(ByVal t As IntPtr) As Boolean
+        Public Shared Function jl_unbox_bool(t As IntPtr) As Boolean
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_unbox_uint64(ByVal t As IntPtr) As ULong
+        Public Shared Function jl_unbox_uint64(t As IntPtr) As ULong
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_unbox_uint32(ByVal t As IntPtr) As UInteger
+        Public Shared Function jl_unbox_uint32(t As IntPtr) As UInteger
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_unbox_uint16(ByVal t As IntPtr) As UShort
+        Public Shared Function jl_unbox_uint16(t As IntPtr) As UShort
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_unbox_uint8(ByVal t As IntPtr) As Byte
+        Public Shared Function jl_unbox_uint8(t As IntPtr) As Byte
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_unbox_voidpointer(ByVal v As IntPtr) As IntPtr
+        Public Shared Function jl_unbox_voidpointer(v As IntPtr) As IntPtr
         End Function
 
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_box_float64(ByVal t As Double) As IntPtr
+        Public Shared Function jl_box_float64(t As Double) As IntPtr
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_box_float32(ByVal t As Single) As IntPtr
+        Public Shared Function jl_box_float32(t As Single) As IntPtr
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_box_int32(ByVal t As Integer) As IntPtr
+        Public Shared Function jl_box_int32(t As Integer) As IntPtr
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_box_int16(ByVal t As Short) As IntPtr
+        Public Shared Function jl_box_int16(t As Short) As IntPtr
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_box_int8(ByVal t As SByte) As IntPtr
+        Public Shared Function jl_box_int8(t As SByte) As IntPtr
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_box_bool(ByVal t As Boolean) As IntPtr
+        Public Shared Function jl_box_bool(t As Boolean) As IntPtr
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_box_uint64(ByVal t As ULong) As IntPtr
+        Public Shared Function jl_box_uint64(t As ULong) As IntPtr
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_box_uint32(ByVal t As UInteger) As IntPtr
+        Public Shared Function jl_box_uint32(t As UInteger) As IntPtr
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_box_uint16(ByVal t As UShort) As IntPtr
+        Public Shared Function jl_box_uint16(t As UShort) As IntPtr
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_box_uint8(ByVal t As Byte) As IntPtr
+        Public Shared Function jl_box_uint8(t As Byte) As IntPtr
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_box_voidpointer(ByVal x As IntPtr) As IntPtr
+        Public Shared Function jl_box_voidpointer(x As IntPtr) As IntPtr
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_cstr_to_string(ByVal s As String) As IntPtr
+        Public Shared Function jl_cstr_to_string(s As String) As IntPtr
         End Function
 
         <DllImport(JuliaNative.LibraryName, EntryPoint:="jl_unbox_int64", CallingConvention:=CallingConvention.Cdecl)>
@@ -164,139 +164,139 @@ Namespace Native.jl_cdecl
 
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_typename_str(ByVal val As IntPtr) As IntPtr
+        Public Shared Function jl_typename_str(val As IntPtr) As IntPtr
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_typeof_str(ByVal v As IntPtr) As IntPtr
+        Public Shared Function jl_typeof_str(v As IntPtr) As IntPtr
         End Function
 
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_new_module(ByVal name As IntPtr) As IntPtr
+        Public Shared Function jl_new_module(name As IntPtr) As IntPtr
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_set_module_nospecialize(ByVal self As IntPtr, ByVal [on] As Integer)
+        Public Shared Sub jl_set_module_nospecialize(self As IntPtr, [on] As Integer)
         End Sub
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_set_module_optlevel(ByVal self As IntPtr, ByVal lvl As Integer)
+        Public Shared Sub jl_set_module_optlevel(self As IntPtr, lvl As Integer)
         End Sub
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_get_module_optlevel(ByVal m As IntPtr) As Integer
+        Public Shared Function jl_get_module_optlevel(m As IntPtr) As Integer
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_set_module_compile(ByVal self As IntPtr, ByVal value As Integer)
+        Public Shared Sub jl_set_module_compile(self As IntPtr, value As Integer)
         End Sub
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_get_module_compile(ByVal m As IntPtr) As Integer
+        Public Shared Function jl_get_module_compile(m As IntPtr) As Integer
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_set_module_infer(ByVal self As IntPtr, ByVal value As Integer)
+        Public Shared Sub jl_set_module_infer(self As IntPtr, value As Integer)
         End Sub
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_get_module_infer(ByVal m As IntPtr) As Integer
-        End Function
-
-
-        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_get_binding(ByVal m As IntPtr, ByVal var As IntPtr) As IntPtr
-        End Function
-
-        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_get_binding_or_error(ByVal m As IntPtr, ByVal var As IntPtr) As IntPtr
-        End Function
-
-        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_module_globalref(ByVal m As IntPtr, ByVal var As IntPtr) As IntPtr
+        Public Shared Function jl_get_module_infer(m As IntPtr) As Integer
         End Function
 
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_get_binding_wr(ByVal m As IntPtr, ByVal var As IntPtr, ByVal [error] As Integer) As IntPtr
+        Public Shared Function jl_get_binding(m As IntPtr, var As IntPtr) As IntPtr
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_get_binding_for_method_def(ByVal m As IntPtr, ByVal var As IntPtr) As IntPtr
+        Public Shared Function jl_get_binding_or_error(m As IntPtr, var As IntPtr) As IntPtr
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_boundp(ByVal m As IntPtr, ByVal var As IntPtr) As Integer
+        Public Shared Function jl_module_globalref(m As IntPtr, var As IntPtr) As IntPtr
+        End Function
+
+
+        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Function jl_get_binding_wr(m As IntPtr, var As IntPtr, [error] As Integer) As IntPtr
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_defines_or_exports_p(ByVal m As IntPtr, ByVal var As IntPtr) As Integer
+        Public Shared Function jl_get_binding_for_method_def(m As IntPtr, var As IntPtr) As IntPtr
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_binding_resolved_p(ByVal m As IntPtr, ByVal var As IntPtr) As Integer
+        Public Shared Function jl_boundp(m As IntPtr, var As IntPtr) As Integer
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_set_global(ByVal m As IntPtr, ByVal var As IntPtr, ByVal val As IntPtr)
-        End Sub
-
-        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_set_const(ByVal m As IntPtr, ByVal var As IntPtr, ByVal val As IntPtr)
-        End Sub
-
-        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_checked_assignment(ByVal b As IntPtr, ByVal rhs As IntPtr)
-        End Sub
-
-        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_declare_constant(ByVal b As IntPtr)
-        End Sub
-
-        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_module_using(ByVal [to] As IntPtr, ByVal from As IntPtr)
-        End Sub
-
-        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_module_use(ByVal [to] As IntPtr, ByVal from As IntPtr, ByVal s As IntPtr)
-        End Sub
-
-        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_module_use_as(ByVal [to] As IntPtr, ByVal from As IntPtr, ByVal s As IntPtr, ByVal asname As IntPtr)
-        End Sub
-
-        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_module_import(ByVal [to] As IntPtr, ByVal from As IntPtr, ByVal s As IntPtr)
-        End Sub
-
-        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_module_import_as(ByVal [to] As IntPtr, ByVal from As IntPtr, ByVal s As IntPtr, ByVal asname As IntPtr)
-        End Sub
-
-        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_module_export(ByVal from As IntPtr, ByVal s As IntPtr)
-        End Sub
-
-        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_is_imported(ByVal m As IntPtr, ByVal s As IntPtr) As Integer
+        Public Shared Function jl_defines_or_exports_p(m As IntPtr, var As IntPtr) As Integer
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_module_exports_p(ByVal m As IntPtr, ByVal var As IntPtr) As Integer
+        Public Shared Function jl_binding_resolved_p(m As IntPtr, var As IntPtr) As Integer
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_add_standard_imports(ByVal m As IntPtr)
+        Public Shared Sub jl_set_global(m As IntPtr, var As IntPtr, val As IntPtr)
+        End Sub
+
+        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Sub jl_set_const(m As IntPtr, var As IntPtr, val As IntPtr)
+        End Sub
+
+        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Sub jl_checked_assignment(b As IntPtr, rhs As IntPtr)
+        End Sub
+
+        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Sub jl_declare_constant(b As IntPtr)
+        End Sub
+
+        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Sub jl_module_using([to] As IntPtr, from As IntPtr)
+        End Sub
+
+        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Sub jl_module_use([to] As IntPtr, from As IntPtr, s As IntPtr)
+        End Sub
+
+        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Sub jl_module_use_as([to] As IntPtr, from As IntPtr, s As IntPtr, asname As IntPtr)
+        End Sub
+
+        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Sub jl_module_import([to] As IntPtr, from As IntPtr, s As IntPtr)
+        End Sub
+
+        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Sub jl_module_import_as([to] As IntPtr, from As IntPtr, s As IntPtr, asname As IntPtr)
+        End Sub
+
+        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Sub jl_module_export(from As IntPtr, s As IntPtr)
+        End Sub
+
+        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Function jl_is_imported(m As IntPtr, s As IntPtr) As Integer
+        End Function
+
+        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Function jl_module_exports_p(m As IntPtr, var As IntPtr) As Integer
+        End Function
+
+        <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Sub jl_add_standard_imports(m As IntPtr)
         End Sub
 
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_eqtable_put(ByVal h As IntPtr, ByVal key As IntPtr, ByVal val As IntPtr, ByVal inserted As IntPtr) As IntPtr
+        Public Shared Function jl_eqtable_put(h As IntPtr, key As IntPtr, val As IntPtr, inserted As IntPtr) As IntPtr
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_eqtable_get(ByVal h As IntPtr, ByVal key As IntPtr, ByVal deflt As IntPtr) As IntPtr
+        Public Shared Function jl_eqtable_get(h As IntPtr, key As IntPtr, deflt As IntPtr) As IntPtr
         End Function
 
 
@@ -306,11 +306,11 @@ Namespace Native.jl_cdecl
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_set_errno(ByVal e As Integer)
+        Public Shared Sub jl_set_errno(e As Integer)
         End Sub
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_stat(ByVal path As String, ByVal statbuf As String) As Integer
+        Public Shared Function jl_stat(path As String, statbuf As String) As Integer
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
@@ -342,41 +342,41 @@ Namespace Native.jl_cdecl
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_environ(ByVal i As Integer) As IntPtr
+        Public Shared Function jl_environ(i As Integer) As IntPtr
         End Function
 
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_error(ByVal str As String)
+        Public Shared Sub jl_error(str As String)
         End Sub
 
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_too_few_args(ByVal fname As String, ByVal min As Integer)
+        Public Shared Sub jl_too_few_args(fname As String, min As Integer)
         End Sub
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_too_many_args(ByVal fname As String, ByVal max As Integer)
+        Public Shared Sub jl_too_many_args(fname As String, max As Integer)
         End Sub
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_type_error(ByVal fname As String, ByVal expected As IntPtr, ByVal got As IntPtr)
+        Public Shared Sub jl_type_error(fname As String, expected As IntPtr, got As IntPtr)
         End Sub
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_type_error_rt(ByVal fname As String, ByVal context As String, ByVal ty As IntPtr, ByVal got As IntPtr)
+        Public Shared Sub jl_type_error_rt(fname As String, context As String, ty As IntPtr, got As IntPtr)
         End Sub
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_undefined_var_error(ByVal var As IntPtr)
+        Public Shared Sub jl_undefined_var_error(var As IntPtr)
         End Sub
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_atomic_error(ByVal str As String)
+        Public Shared Sub jl_atomic_error(str As String)
         End Sub
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_bounds_error(ByVal v As IntPtr, ByVal t As IntPtr)
+        Public Shared Sub jl_bounds_error(v As IntPtr, t As IntPtr)
         End Sub
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
@@ -391,7 +391,7 @@ Namespace Native.jl_cdecl
 
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_init_with_image(ByVal julia_bindir As String, ByVal image_relative_path As String)
+        Public Shared Sub jl_init_with_image(julia_bindir As String, image_relative_path As String)
         End Sub
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
@@ -404,56 +404,56 @@ Namespace Native.jl_cdecl
 
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_exit(ByVal status As Integer)
+        Public Shared Sub jl_exit(status As Integer)
         End Sub
 
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_pathname_for_handle(ByVal handle As IntPtr) As IntPtr
+        Public Shared Function jl_pathname_for_handle(handle As IntPtr) As IntPtr
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_deserialize_verify_header(ByVal s As IntPtr) As Integer
+        Public Shared Function jl_deserialize_verify_header(s As IntPtr) As Integer
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_preload_sysimg_so(ByVal fname As String)
+        Public Shared Sub jl_preload_sysimg_so(fname As String)
         End Sub
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_set_sysimg_so(ByVal handle As IntPtr)
+        Public Shared Sub jl_set_sysimg_so(handle As IntPtr)
         End Sub
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_create_system_image(ByVal p As IntPtr) As IntPtr
+        Public Shared Function jl_create_system_image(p As IntPtr) As IntPtr
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_save_system_image(ByVal fname As String)
+        Public Shared Sub jl_save_system_image(fname As String)
         End Sub
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_restore_system_image(ByVal fname As String)
+        Public Shared Sub jl_restore_system_image(fname As String)
         End Sub
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_is_operator(ByVal sym As String) As Integer
+        Public Shared Function jl_is_operator(sym As String) As Integer
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_is_unary_operator(ByVal sym As String) As Integer
+        Public Shared Function jl_is_unary_operator(sym As String) As Integer
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_is_unary_and_binary_operator(ByVal sym As String) As Integer
+        Public Shared Function jl_is_unary_and_binary_operator(sym As String) As Integer
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_is_syntactic_operator(ByVal sym As String) As Integer
+        Public Shared Function jl_is_syntactic_operator(sym As String) As Integer
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_operator_precedence(ByVal sym As String) As Integer
+        Public Shared Function jl_operator_precedence(sym As String) As Integer
         End Function
 
 

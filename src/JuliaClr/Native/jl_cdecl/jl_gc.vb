@@ -45,23 +45,23 @@ Namespace Native.jl_cdecl
         End Enum
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_gc_collect(ByVal c As JLGCCollection)
+        Public Shared Sub jl_gc_collect(c As JLGCCollection)
         End Sub
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_gc_add_finalizer(ByVal v As IntPtr, ByVal f As IntPtr)
+        Public Shared Sub jl_gc_add_finalizer(v As IntPtr, f As IntPtr)
         End Sub
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_gc_add_ptr_finalizer(ByVal ptls As IntPtr, ByVal v As IntPtr, ByVal f As IntPtr)
+        Public Shared Sub jl_gc_add_ptr_finalizer(ptls As IntPtr, v As IntPtr, f As IntPtr)
         End Sub
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_finalize(ByVal o As IntPtr)
+        Public Shared Sub jl_finalize(o As IntPtr)
         End Sub
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_gc_new_weakref(ByVal value As IntPtr) As IntPtr
+        Public Shared Function jl_gc_new_weakref(value As IntPtr) As IntPtr
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
@@ -81,7 +81,7 @@ Namespace Native.jl_cdecl
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Sub jl_gc_use(ByVal a As IntPtr)
+        Public Shared Sub jl_gc_use(a As IntPtr)
         End Sub
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
@@ -90,11 +90,11 @@ Namespace Native.jl_cdecl
 #End Region
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_subtype(ByVal a As IntPtr, ByVal b As IntPtr) As Integer
+        Public Shared Function jl_subtype(a As IntPtr, b As IntPtr) As Integer
         End Function
 
         <DllImport("libjulia.dll", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_isa(ByVal a As IntPtr, ByVal t As IntPtr) As Integer
+        Public Shared Function jl_isa(a As IntPtr, t As IntPtr) As Integer
         End Function
 
 

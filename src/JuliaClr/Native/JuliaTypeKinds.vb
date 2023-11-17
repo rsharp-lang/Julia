@@ -1,6 +1,6 @@
 ﻿Namespace Native
 
-    Public Enum JTypeType As Byte
+    Public Enum JuliaTypeKinds As Byte
         Struct
         MutableStruct
         Abstract
