@@ -19,14 +19,14 @@ Namespace Native.jl_cdecl
         ''' <summary>
         ''' Enable/Disable the GC, return previous state as int
         ''' </summary>
-        ''' <param name="opt">
+        ''' <param name="on">
         ''' + 0: Disable the GC, return previous state as int
         ''' + 1: Enable the GC, return previous state as int
         ''' </param>
         ''' <returns></returns>
         ''' 
         <DllImport(JuliaNative.LibraryName, EntryPoint:="jl_gc_enable", CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_gc_enable(opt As Integer) As Integer
+        Public Shared Function jl_gc_enable([on] As Integer) As Integer
         End Function
 
         ''' <summary>
