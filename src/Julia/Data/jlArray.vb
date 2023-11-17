@@ -1,6 +1,7 @@
 ﻿Imports System.Runtime.InteropServices
 Imports System.Text
 Imports JuliaSharp.Native
+Imports JuliaSharp.Native.jl_cdecl
 Imports size_t = System.UIntPtr
 
 Public Class jlArray(Of T) : Inherits SafeHandle
@@ -45,7 +46,7 @@ Public Class jlArray(Of T) : Inherits SafeHandle
     End Sub
 
     Public Shared Function Create1D(n As Integer) As jlArray(Of T)
-        Dim elementType = JuliaNative.type.GetType(Of T)
+        Dim elementType = JuliaNative.Type.GetType(Of T)
         Dim arrartype = JuliaNative.ApplyArrayType(elementType, 1)
         Dim x = JuliaNative.AllocArray1D(arrartype, CType(n, size_t))
 
@@ -53,7 +54,7 @@ Public Class jlArray(Of T) : Inherits SafeHandle
     End Function
 
     Public Shared Function Create2D(nr As Integer, nc As Integer) As jlArray(Of T)
-        Dim elementType = JuliaNative.type.GetType(Of T)
+        Dim elementType = JuliaNative.Type.GetType(Of T)
         Dim arrartype = JuliaNative.ApplyArrayType(elementType, 2)
         Dim x = JuliaNative.AllocArray2D(arrartype, CType(nr, size_t), CType(nc, size_t))
 

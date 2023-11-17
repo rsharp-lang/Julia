@@ -8,8 +8,8 @@ Namespace Native
         Public Const LibraryName As String = "libjulia"
 
         Friend Shared LibPtr As IntPtr = IntPtr.Zero
-        Friend Shared julia As UnmanagedDll
-        Friend Shared type As jlType
+        Friend Shared Julia As UnmanagedDll
+        Friend Shared Type As jlType
 
         Public Shared InitThreading As JuliaInitDelegate = Nothing
         Public Shared AtExitHook As JuliaAtExitHookDelegate = Nothing
@@ -47,23 +47,23 @@ Namespace Native
         ''' 2. filepath to the file ``libjulia.so`` on linux platform
         ''' </param>
         Public Shared Sub LoadDll(fileName As String)
-            julia = New UnmanagedDll(fileName, UnixLibraryLoader.RTLD_NOW Or UnixLibraryLoader.RTLD_GLOBAL)
-            LibPtr = julia.LibraryHandle
+            Julia = New UnmanagedDll(fileName, UnixLibraryLoader.RTLD_NOW Or UnixLibraryLoader.RTLD_GLOBAL)
+            LibPtr = Julia.LibraryHandle
 
             If RuntimeInformation.IsOSPlatform(OSPlatform.Windows) Then
-                Windows.LoadJulia(julia)
+                Windows.LoadJulia(Julia)
             ElseIf RuntimeInformation.IsOSPlatform(OSPlatform.Linux) Then
-                Linux.LoadJulia(julia)
+                Linux.LoadJulia(Julia)
             Else
                 Throw New NotImplementedException
             End If
 
             ' get julia data type
-            JuliaNative.Float64Type = julia.GetFunctionAddress("jl_float64_type")
-            JuliaNative.Int64Type = julia.GetFunctionAddress("jl_int64_type")
-            JuliaNative.BaseModule = julia.GetFunctionAddress("jl_base_module")
+            JuliaNative.Float64Type = Julia.GetFunctionAddress("jl_float64_type")
+            JuliaNative.Int64Type = Julia.GetFunctionAddress("jl_int64_type")
+            JuliaNative.BaseModule = Julia.GetFunctionAddress("jl_base_module")
 
-            type = New jlType
+            Type = New jlType
         End Sub
 
         'struct JuliaModuleT
