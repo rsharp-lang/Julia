@@ -97,6 +97,5 @@ Namespace Native.jl_cdecl
         Public Shared Function jl_isa(a As IntPtr, t As IntPtr) As Integer
         End Function
 
-
     End Class
 End Namespace
