@@ -1,4 +1,7 @@
-﻿''' <summary>
+﻿Imports System.Runtime.CompilerServices
+Imports SMRUCC.Julia.Native
+
+''' <summary>
 ''' A single data type instance
 ''' </summary>
 Public Class jlType
@@ -34,10 +37,25 @@ Public Class jlType
     Friend Sub New(array As IntPtr, eltype As jlType)
         Me.Native = array
         Me.Name = $"Array{{{eltype}}}"
-        Me.Clr = GetType(Array)
+        Me.Clr = GetType(System.Array)
         Me.ElementType = eltype
         Me.IsArray = True
     End Sub
+
+    Public Function GetKind() As JuliaTypeKinds
+        If JuliaNative.Type.IsPrimitive(Native) Then
+            Return JuliaTypeKinds.Primitive
+        ElseIf IsArray Then
+            Return JuliaTypeKinds.Array
+        Else
+            Return JuliaTypeKinds.NA
+        End If
+    End Function
+
+    <MethodImpl(MethodImplOptions.AggressiveInlining)>
+    Public Overloads Shared Function [GetType](x As IntPtr) As jlType
+        Return JuliaType.GetType(x)
+    End Function
 
     Public Overrides Function ToString() As String
         Return $"[{Native.ToInt64.ToHexString}] {Name}@{Clr.FullName}"

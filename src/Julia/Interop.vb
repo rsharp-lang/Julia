@@ -1,6 +1,7 @@
 Imports Microsoft.VisualBasic.CommandLine.Reflection
 Imports Microsoft.VisualBasic.Language
 Imports Microsoft.VisualBasic.Scripting.MetaData
+Imports SMRUCC.Julia
 Imports SMRUCC.Julia.Native
 Imports SMRUCC.Rsharp.Interpreter
 Imports SMRUCC.Rsharp.Runtime
@@ -69,5 +70,15 @@ Public Module Interop
 
     Private Function eval_string_single(s As String, env As Environment) As Object
         Dim jl_out As IntPtr = JuliaNative.julia_eval_string(s)
+        Dim type As jlType = jlType.GetType(jl_out)
+
+        If type.GetKind = JuliaTypeKinds.Primitive Then
+            ' primitive scalar value
+            Return Scalar.GetValue(jl_out, type)
+        ElseIf type.GetKind = JuliaTypeKinds.Array Then
+
+        Else
+            Throw New NotImplementedException
+        End If
     End Function
 End Module

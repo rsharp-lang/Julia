@@ -53,6 +53,11 @@ Namespace Native
             Next
         End Sub
 
+        <MethodImpl(MethodImplOptions.AggressiveInlining)>
+        Public Function IsPrimitive(type As IntPtr) As Boolean
+            Return pointerTo.ContainsKey(type)
+        End Function
+
         Public Overloads Function [GetType](Of T)() As IntPtr
             If index.ContainsKey(GetType(T)) Then
                 Return index(GetType(T))
