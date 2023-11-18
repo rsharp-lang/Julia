@@ -14,6 +14,10 @@ Module Program
         ' Dim chars As jlArray(Of Char) = typeof_str
         Dim chars = Marshal.PtrToStringAnsi(typeof_str)
 
+
+        Dim type As jlType = Native.JuliaType.GetType(val_p)
+
+
         Dim r As jlValue(Of Double) = JuliaNative.julia_eval_string("sqrt(2.0)")
         Dim d As Double = r
         Console.WriteLine($"{d}")
