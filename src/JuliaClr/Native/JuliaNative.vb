@@ -29,6 +29,8 @@ Namespace Native
         Public Shared julia_alloc_array_1d As julia_alloc_array_1d = Nothing
         Public Shared julia_alloc_array_2d As julia_alloc_array_2d = Nothing
 
+        Public Shared julia_typeof_str As julia_typeof_str
+
         Public Shared julia_gc_collect As julia_gc_collect
         Public Shared julia_gc_enable As julia_gc_enable
 

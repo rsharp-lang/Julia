@@ -23,6 +23,8 @@ Namespace Native.Platform
             JuliaNative.julia_alloc_array_1d = AddressOf Cdecl.Jl_alloc_array_1d
             JuliaNative.julia_alloc_array_2d = AddressOf Cdecl.Jl_alloc_array_2d
 
+            JuliaNative.julia_typeof_str = AddressOf Cdecl.jl_typeof_str
+
             JuliaNative.julia_gc_collect = AddressOf Cdecl.Jl_gc_collect
             JuliaNative.julia_gc_enable = AddressOf Cdecl.Jl_gc_enable
         End Sub

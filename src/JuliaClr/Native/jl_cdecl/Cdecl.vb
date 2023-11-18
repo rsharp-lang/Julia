@@ -36,26 +36,6 @@ Namespace Native.jl_cdecl
         Friend Shared Function Jl_symbol(<MarshalAs(UnmanagedType.LPStr)> str As String) As IntPtr
         End Function
 
-        <DllImport(JuliaNative.LibraryName, EntryPoint:="jl_apply_array_type", CallingConvention:=CallingConvention.Cdecl)>
-        Friend Shared Function Jl_apply_array_type(type As IntPtr, [dim] As ULong) As IntPtr
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, EntryPoint:="jl_alloc_array_1d", CallingConvention:=CallingConvention.Cdecl)>
-        Friend Shared Function Jl_alloc_array_1d(atype As IntPtr, nr As size_t) As IntPtr
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, EntryPoint:="jl_alloc_array_2d", CallingConvention:=CallingConvention.Cdecl)>
-        Friend Shared Function Jl_alloc_array_2d(atype As IntPtr, nr As size_t, nc As size_t) As IntPtr
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_typename_str(val As IntPtr) As IntPtr
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_typeof_str(v As IntPtr) As IntPtr
-        End Function
-
         <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
         Public Shared Function jl_new_module(name As IntPtr) As IntPtr
         End Function
@@ -99,7 +79,6 @@ Namespace Native.jl_cdecl
         <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
         Public Shared Function jl_module_globalref(m As IntPtr, var As IntPtr) As IntPtr
         End Function
-
 
         <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
         Public Shared Function jl_get_binding_wr(m As IntPtr, var As IntPtr, [error] As Integer) As IntPtr
@@ -172,7 +151,6 @@ Namespace Native.jl_cdecl
         <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
         Public Shared Sub jl_add_standard_imports(m As IntPtr)
         End Sub
-
 
         <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
         Public Shared Function jl_eqtable_put(h As IntPtr, key As IntPtr, val As IntPtr, inserted As IntPtr) As IntPtr
@@ -265,26 +243,6 @@ Namespace Native.jl_cdecl
         <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
         Public Shared Sub jl_restore_system_image(fname As String)
         End Sub
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_is_operator(sym As String) As Integer
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_is_unary_operator(sym As String) As Integer
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_is_unary_and_binary_operator(sym As String) As Integer
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_is_syntactic_operator(sym As String) As Integer
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_operator_precedence(sym As String) As Integer
-        End Function
 
         <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
         Public Shared Sub jl_yield()

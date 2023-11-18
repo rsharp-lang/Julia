@@ -29,6 +29,8 @@ Namespace Native.Platform
             JuliaNative.julia_alloc_array_1d = julia_so.GetFunction(Of Native.julia_alloc_array_1d)("jl_alloc_array_1d")
             JuliaNative.julia_alloc_array_2d = julia_so.GetFunction(Of Native.julia_alloc_array_2d)("jl_alloc_array_2d")
 
+            JuliaNative.julia_typeof_str = julia_so.GetFunction(Of Native.julia_typeof_str)("jl_typeof_str")
+
             JuliaNative.julia_gc_collect = julia_so.GetFunction(Of Native.julia_gc_collect)("jl_gc_collect")
             JuliaNative.julia_gc_enable = julia_so.GetFunction(Of Native.julia_gc_enable)("jl_gc_enable")
         End Sub
