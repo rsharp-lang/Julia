@@ -104,5 +104,15 @@ Namespace Native.jl_cdecl
         Public Shared Function jl_box_voidpointer(x As IntPtr) As IntPtr
         End Function
 #End Region
+
+        ''' <summary>
+        ''' JL_DLLEXPORT const char *jl_string_ptr(jl_value_t *s);
+        ''' </summary>
+        ''' <param name="s"></param>
+        ''' <returns></returns>
+        ''' 
+        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Function jl_string_ptr(s As IntPtr) As IntPtr
+        End Function
     End Class
 End Namespace

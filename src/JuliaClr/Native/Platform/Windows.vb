@@ -31,6 +31,8 @@ Namespace Native.Platform
             JuliaNative.julia_unbox_uint8 = AddressOf Cdecl.jl_unbox_uint8
             JuliaNative.julia_unbox_voidpointer = AddressOf Cdecl.jl_unbox_voidpointer
 
+            JuliaNative.julia_string_ptr = AddressOf Cdecl.jl_string_ptr
+
             JuliaNative.julia_get_global = AddressOf Cdecl.Jl_get_global
             JuliaNative.julia_call1 = AddressOf Cdecl.Jl_call1
             JuliaNative.julia_symbol = AddressOf Cdecl.Jl_symbol
@@ -40,6 +42,7 @@ Namespace Native.Platform
 
             JuliaNative.julia_typeof_str = AddressOf Cdecl.jl_typeof_str
             JuliaNative.julia_array_eltype = AddressOf Cdecl.jl_array_eltype
+            JuliaNative.julia_typeof = AddressOf Cdecl.jl_typeof
 
             JuliaNative.julia_gc_collect = AddressOf Cdecl.Jl_gc_collect
             JuliaNative.julia_gc_enable = AddressOf Cdecl.Jl_gc_enable

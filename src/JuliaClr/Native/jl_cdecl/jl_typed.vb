@@ -13,6 +13,10 @@ Namespace Native.jl_cdecl
         End Function
 
         <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
+        Public Shared Function jl_typeof(v As IntPtr) As IntPtr
+        End Function
+
+        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
         Public Shared Function jl_is_operator(sym As String) As Integer
         End Function
 

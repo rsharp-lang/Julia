@@ -47,6 +47,7 @@ Namespace Native
             typeof_str("UInt8") = GetType(Byte)
 
             typeof_str("Bool") = GetType(Boolean)
+            typeof_str("String") = GetType(String)
 
             For Each map In typeof_str
                 type_julia_name(map.Value) = map.Key
@@ -100,6 +101,9 @@ Namespace Native
                 Return julia_measure_array_type(x)
             Else
                 ' needs to build composed type
+                Dim typeinfo As IntPtr = JuliaNative.julia_typeof(x)
+
+
                 Throw New NotImplementedException
             End If
         End Function

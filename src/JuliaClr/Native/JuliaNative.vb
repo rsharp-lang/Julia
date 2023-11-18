@@ -36,6 +36,7 @@ Namespace Native
         Public Shared julia_unbox_uint8 As julia_unbox_uint8 = Nothing
         Public Shared julia_unbox_voidpointer As julia_unbox_voidpointer = Nothing
 
+        Public Shared julia_string_ptr As julia_string_ptr
 
         Public Shared julia_get_global As julia_get_global = Nothing
         Public Shared julia_symbol As julia_symbol = Nothing
@@ -47,6 +48,7 @@ Namespace Native
         Public Shared julia_array_eltype As julia_array_eltype = Nothing
 
         Public Shared julia_typeof_str As julia_typeof_str
+        Public Shared julia_typeof As julia_typeof
 
         Public Shared julia_gc_collect As julia_gc_collect
         Public Shared julia_gc_enable As julia_gc_enable
@@ -75,6 +77,9 @@ Namespace Native
         <TypeForward(GetType(Half))> Public Shared jl_float16_type As jl_type_id
         <TypeForward(GetType(Single))> Public Shared jl_float32_type As jl_type_id
         <TypeForward(GetType(Double))> Public Shared jl_float64_type As jl_type_id
+        <TypeForward(GetType(String))> Public Shared jl_string_type As jl_type_id
+
+
         Public Shared jl_floatingpoint_type As jl_type_id
         Public Shared jl_number_type As jl_type_id
         Public Shared jl_void_type As jl_type_id
@@ -120,6 +125,8 @@ Namespace Native
             JuliaNative.jl_number_type = Julia.GetFunctionAddress("jl_number_type")
             JuliaNative.jl_void_type = Julia.GetFunctionAddress("jl_void_type")
             JuliaNative.jl_nothing_type = Julia.GetFunctionAddress("jl_nothing_type")
+            JuliaNative.jl_string_type = Julia.GetFunctionAddress("jl_string_type")
+
             JuliaNative.BaseModule = Julia.GetFunctionAddress("jl_base_module")
 
             ' jl_init__threading function must be called at very first!

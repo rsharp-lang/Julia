@@ -36,6 +36,8 @@ Namespace Native.Platform
             JuliaNative.julia_unbox_uint8 = julia_so.GetFunction(Of julia_unbox_uint8)("jl_unbox_uint8")
             JuliaNative.julia_unbox_voidpointer = julia_so.GetFunction(Of julia_unbox_voidpointer)("jl_unbox_voidpointer")
 
+            JuliaNative.julia_string_ptr = julia_so.GetFunction(Of julia_string_ptr)("jl_string_ptr")
+
             JuliaNative.julia_get_global = julia_so.GetFunction(Of Native.julia_get_global)("jl_get_global")
             JuliaNative.julia_call1 = julia_so.GetFunction(Of Native.julia_call1)("jl_call1")
             JuliaNative.julia_symbol = julia_so.GetFunction(Of Native.julia_symbol)("jl_symbol")
@@ -44,6 +46,7 @@ Namespace Native.Platform
             JuliaNative.julia_alloc_array_2d = julia_so.GetFunction(Of Native.julia_alloc_array_2d)("jl_alloc_array_2d")
 
             JuliaNative.julia_typeof_str = julia_so.GetFunction(Of Native.julia_typeof_str)("jl_typeof_str")
+            JuliaNative.julia_typeof = julia_so.GetFunction(Of Native.julia_typeof)("jl_typeof")
 
             JuliaNative.julia_array_eltype = julia_so.GetFunction(Of Native.julia_array_eltype)("jl_array_eltype")
 

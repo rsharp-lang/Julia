@@ -29,7 +29,7 @@ Namespace Data
                 Case TypeCode.Int32 : Return JuliaNative.julia_unbox_int32(jl_out)
                 Case TypeCode.SByte : Return JuliaNative.julia_unbox_int8(jl_out)
                 Case TypeCode.Single : Return JuliaNative.julia_unbox_float32(jl_out)
-                Case TypeCode.String : Return Marshal.PtrToStringAuto(jl_out)
+                Case TypeCode.String : Return getValueString(jl_out)
                 Case TypeCode.UInt16 : Return JuliaNative.julia_unbox_uint16(jl_out)
                 Case TypeCode.UInt32 : Return JuliaNative.julia_unbox_uint32(jl_out)
                 Case TypeCode.UInt64 : Return JuliaNative.julia_unbox_uint64(jl_out)
@@ -39,5 +39,13 @@ Namespace Data
             End Select
         End Function
 
+        Private Function getValueString(jl_out As IntPtr) As String
+            Dim s As String
+
+            jl_out = JuliaNative.julia_string_ptr(jl_out)
+            s = Marshal.PtrToStringAnsi(jl_out)
+
+            Return s
+        End Function
     End Module
 End Namespace

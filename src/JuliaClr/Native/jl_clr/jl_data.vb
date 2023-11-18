@@ -41,4 +41,6 @@ Namespace Native
     Public Delegate Function julia_unbox_uint8(t As IntPtr) As Byte
     Public Delegate Function julia_unbox_voidpointer(v As IntPtr) As IntPtr
 
+    Public Delegate Function julia_string_ptr(s As IntPtr) As IntPtr
+
 End Namespace

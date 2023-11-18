@@ -21,10 +21,6 @@ Namespace Native.jl_cdecl
         End Function
 
         <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
-        Public Shared Function jl_string_ptr(v As IntPtr) As IntPtr
-        End Function
-
-        <DllImport(JuliaNative.LibraryName, CallingConvention:=CallingConvention.Cdecl)>
         Public Shared Function jl_cstr_to_string(s As String) As IntPtr
         End Function
 
