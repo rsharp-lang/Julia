@@ -12,10 +12,25 @@ Namespace Native.Platform
             JuliaNative.julia_init__threading = AddressOf Cdecl.Jl_init__threading
             JuliaNative.julia_atexit_hook = AddressOf Cdecl.Jl_atexit_hook
             JuliaNative.julia_eval_string = AddressOf Cdecl.Jl_eval_string
-            JuliaNative.julia_unbox_float64 = AddressOf Cdecl.Jl_unbox_float64
-            JuliaNative.julia_box_float64 = AddressOf Cdecl.Jl_box_float64
-            JuliaNative.julia_unbox_int64 = AddressOf Cdecl.Jl_unbox_int64
+
+
+            JuliaNative.julia_box_float64 = AddressOf Cdecl.jl_box_float64
             JuliaNative.julia_box_int64 = AddressOf Cdecl.Jl_box_int64
+
+            JuliaNative.julia_unbox_int64 = AddressOf Cdecl.Jl_unbox_int64
+            JuliaNative.julia_unbox_float64 = AddressOf Cdecl.jl_unbox_float64
+
+            JuliaNative.julia_unbox_float32 = AddressOf Cdecl.jl_unbox_float32
+            JuliaNative.julia_unbox_int32 = AddressOf Cdecl.jl_unbox_int32
+            JuliaNative.julia_unbox_int16 = AddressOf Cdecl.jl_unbox_int16
+            JuliaNative.julia_unbox_int8 = AddressOf Cdecl.jl_unbox_int8
+            JuliaNative.julia_unbox_bool = AddressOf Cdecl.jl_unbox_bool
+            JuliaNative.julia_unbox_uint64 = AddressOf Cdecl.jl_unbox_uint64
+            JuliaNative.julia_unbox_uint32 = AddressOf Cdecl.jl_unbox_uint32
+            JuliaNative.julia_unbox_uint16 = AddressOf Cdecl.jl_unbox_uint16
+            JuliaNative.julia_unbox_uint8 = AddressOf Cdecl.jl_unbox_uint8
+            JuliaNative.julia_unbox_voidpointer = AddressOf Cdecl.jl_unbox_voidpointer
+
             JuliaNative.julia_get_global = AddressOf Cdecl.Jl_get_global
             JuliaNative.julia_call1 = AddressOf Cdecl.Jl_call1
             JuliaNative.julia_symbol = AddressOf Cdecl.Jl_symbol

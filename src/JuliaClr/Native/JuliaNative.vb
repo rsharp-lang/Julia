@@ -18,10 +18,25 @@ Namespace Native
 
         Public Shared julia_atexit_hook As julia_atexit_hook = Nothing
         Public Shared julia_eval_string As julia_eval_string = Nothing
-        Public Shared julia_unbox_float64 As julia_unbox_float64 = Nothing
+
+
         Public Shared julia_box_float64 As julia_box_float64 = Nothing
-        Public Shared julia_unbox_int64 As julia_unbox_int64 = Nothing
         Public Shared julia_box_int64 As julia_box_int64 = Nothing
+
+        Public Shared julia_unbox_int64 As julia_unbox_int64 = Nothing
+        Public Shared julia_unbox_float64 As julia_unbox_float64 = Nothing
+        Public Shared julia_unbox_float32 As julia_unbox_float32 = Nothing
+        Public Shared julia_unbox_int32 As julia_unbox_int32 = Nothing
+        Public Shared julia_unbox_int16 As julia_unbox_int16 = Nothing
+        Public Shared julia_unbox_int8 As julia_unbox_int8 = Nothing
+        Public Shared julia_unbox_bool As julia_unbox_bool = Nothing
+        Public Shared julia_unbox_uint64 As julia_unbox_uint64 = Nothing
+        Public Shared julia_unbox_uint32 As julia_unbox_uint32 = Nothing
+        Public Shared julia_unbox_uint16 As julia_unbox_uint16 = Nothing
+        Public Shared julia_unbox_uint8 As julia_unbox_uint8 = Nothing
+        Public Shared julia_unbox_voidpointer As julia_unbox_voidpointer = Nothing
+
+
         Public Shared julia_get_global As julia_get_global = Nothing
         Public Shared julia_symbol As julia_symbol = Nothing
         Public Shared julia_call1 As julia_call1 = Nothing

@@ -52,14 +52,62 @@ Public Class jlValue(Of T As IConvertible) : Inherits SafeHandle
         Return JuliaNative.julia_unbox_float64(handle)
     End Function
 
+    Public Function GetFloat32() As Single
+        Return JuliaNative.julia_unbox_float32(handle)
+    End Function
+
+    Public Function GetInt32() As Half
+        Return JuliaNative.julia_unbox_int32(handle)
+    End Function
+
+    Public Function GetInt16() As Short
+        Return JuliaNative.julia_unbox_int16(handle)
+    End Function
+
+    Public Function GetBoolean() As Boolean
+        Return JuliaNative.julia_unbox_bool(handle)
+    End Function
+
+    Public Function GetUInt64() As UInt64
+        Return JuliaNative.julia_unbox_uint64(handle)
+    End Function
+
+    Public Function GetUInt32() As UInt32
+        Return JuliaNative.julia_unbox_uint32(handle)
+    End Function
+
+    Public Function GetUInt16() As UInt16
+        Return JuliaNative.julia_unbox_uint16(handle)
+    End Function
+
+    Public Function GetInt8() As SByte
+        Return JuliaNative.julia_unbox_int8(handle)
+    End Function
+
+    Public Function GetUInt8() As Byte
+        Return JuliaNative.julia_unbox_uint8(handle)
+    End Function
+
+    ''' <summary>
+    ''' get scalar value
+    ''' </summary>
+    ''' <returns></returns>
     Public Function [Get]() As T
         Select Case GetType(T)
-            Case GetType(Double)
-                Return CType(Convert.ChangeType(GetFloat64(), GetType(T)), T)
-            Case GetType(Int64)
-                Return CType(Convert.ChangeType(GetInt64(), GetType(T)), T)
+            Case GetType(Double) : Return CObj(GetFloat64())
+            Case GetType(Int64) : Return CObj(GetInt64())
+            Case GetType(Int32) : Return CObj(GetInt32())
+            Case GetType(Int16) : Return CObj(GetInt16())
+            Case GetType(Single) : Return CObj(GetFloat32())
+            Case GetType(UInt16) : Return CObj(GetUInt16())
+            Case GetType(UInt32) : Return CObj(GetUInt32())
+            Case GetType(UInt64) : Return CObj(GetUInt64())
+            Case GetType(Boolean) : Return CObj(GetBoolean())
+            Case GetType(Byte) : Return CObj(GetUInt8())
+            Case GetType(SByte) : Return CObj(GetInt8())
+
             Case Else
-                Throw New ArgumentException("仅支持基本数据类型")
+                Throw New ArgumentException("primitive data type only!")
         End Select
     End Function
 
