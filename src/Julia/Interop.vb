@@ -77,7 +77,7 @@ Public Module Interop
             ' primitive scalar value
             Return Scalar.GetPrimitiveValue(jl_out, type)
         ElseIf type.GetKind = JuliaTypeKinds.Array Then
-
+            Return Array.GetValue(jl_out, type)
         Else
             Throw New NotImplementedException
         End If
