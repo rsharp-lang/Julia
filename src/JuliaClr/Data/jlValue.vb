@@ -1,5 +1,6 @@
-﻿Imports System.Runtime.InteropServices
-Imports System.Text
+﻿Imports System.Runtime.CompilerServices
+Imports System.Runtime.InteropServices
+Imports SMRUCC.Julia.Data
 Imports SMRUCC.Julia.Native
 
 ''' <summary>
@@ -44,48 +45,52 @@ Public Class jlValue(Of T As IConvertible) : Inherits SafeHandle
         End If
     End Sub
 
-    Public Function GetInt64() As Long
+    <MethodImpl(MethodImplOptions.AggressiveInlining)> Public Function GetInt64() As Long
         Return JuliaNative.julia_unbox_int64(handle)
     End Function
 
-    Public Function GetFloat64() As Double
+    <MethodImpl(MethodImplOptions.AggressiveInlining)> Public Function GetFloat64() As Double
         Return JuliaNative.julia_unbox_float64(handle)
     End Function
 
-    Public Function GetFloat32() As Single
+    <MethodImpl(MethodImplOptions.AggressiveInlining)> Public Function GetFloat32() As Single
         Return JuliaNative.julia_unbox_float32(handle)
     End Function
 
-    Public Function GetInt32() As Half
+    <MethodImpl(MethodImplOptions.AggressiveInlining)> Public Function GetInt32() As Half
         Return JuliaNative.julia_unbox_int32(handle)
     End Function
 
-    Public Function GetInt16() As Short
+    <MethodImpl(MethodImplOptions.AggressiveInlining)> Public Function GetInt16() As Short
         Return JuliaNative.julia_unbox_int16(handle)
     End Function
 
-    Public Function GetBoolean() As Boolean
+    <MethodImpl(MethodImplOptions.AggressiveInlining)> Public Function GetBoolean() As Boolean
         Return JuliaNative.julia_unbox_bool(handle)
     End Function
 
-    Public Function GetUInt64() As UInt64
+    <MethodImpl(MethodImplOptions.AggressiveInlining)> Public Function GetUInt64() As UInt64
         Return JuliaNative.julia_unbox_uint64(handle)
     End Function
 
-    Public Function GetUInt32() As UInt32
+    <MethodImpl(MethodImplOptions.AggressiveInlining)> Public Function GetUInt32() As UInt32
         Return JuliaNative.julia_unbox_uint32(handle)
     End Function
 
-    Public Function GetUInt16() As UInt16
+    <MethodImpl(MethodImplOptions.AggressiveInlining)> Public Function GetUInt16() As UInt16
         Return JuliaNative.julia_unbox_uint16(handle)
     End Function
 
-    Public Function GetInt8() As SByte
+    <MethodImpl(MethodImplOptions.AggressiveInlining)> Public Function GetInt8() As SByte
         Return JuliaNative.julia_unbox_int8(handle)
     End Function
 
-    Public Function GetUInt8() As Byte
+    <MethodImpl(MethodImplOptions.AggressiveInlining)> Public Function GetUInt8() As Byte
         Return JuliaNative.julia_unbox_uint8(handle)
+    End Function
+
+    <MethodImpl(MethodImplOptions.AggressiveInlining)> Public Function GetString() As String
+        Return Scalar.getValueString(handle)
     End Function
 
     ''' <summary>
@@ -105,6 +110,7 @@ Public Class jlValue(Of T As IConvertible) : Inherits SafeHandle
             Case GetType(Boolean) : Return CObj(GetBoolean())
             Case GetType(Byte) : Return CObj(GetUInt8())
             Case GetType(SByte) : Return CObj(GetInt8())
+            Case GetType(String) : Return CObj(GetString())
 
             Case Else
                 Throw New ArgumentException("primitive data type only!")
@@ -112,25 +118,22 @@ Public Class jlValue(Of T As IConvertible) : Inherits SafeHandle
     End Function
 
     Private Shared Function Box(value As Long) As jlValue(Of T)
-        Dim p = JuliaNative.julia_box_int64(value)
-        Return New jlValue(Of T)(p)
+        Return New jlValue(Of T)(JuliaNative.julia_box_int64(value))
     End Function
 
     Private Shared Function Box(value As Double) As jlValue(Of T)
-        Dim p = JuliaNative.julia_box_float64(value)
-        Return New jlValue(Of T)(p)
+        Return New jlValue(Of T)(JuliaNative.julia_box_float64(value))
     End Function
 
     Public Shared Function Create(value As T) As jlValue(Of T)
         Dim obj As Object = value
 
-        Select Case value.GetType
-            Case GetType(Double)
-                Return jlValue(Of T).Box(CDbl(obj))
-            Case GetType(Long)
-                Return jlValue(Of T).Box(CLng(obj))
+        Select Case GetType(T)
+            Case GetType(Double) : Return jlValue(Of T).Box(CDbl(obj))
+            Case GetType(Long) : Return jlValue(Of T).Box(CLng(obj))
+
             Case Else
-                Throw New System.ArgumentException("仅支持基本数据类型")
+                Throw New ArgumentException("supports the primitive data type only!")
         End Select
     End Function
 

@@ -39,7 +39,7 @@ Namespace Data
             End Select
         End Function
 
-        Private Function getValueString(jl_out As IntPtr) As String
+        Friend Function getValueString(jl_out As IntPtr) As String
             Dim s As String
 
             jl_out = JuliaNative.julia_string_ptr(jl_out)
