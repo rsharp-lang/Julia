@@ -2,6 +2,10 @@
 Imports System.Text
 Imports SMRUCC.Julia.Native
 
+''' <summary>
+''' any scalar value
+''' </summary>
+''' <typeparam name="T"></typeparam>
 Public Class jlValue(Of T As IConvertible) : Inherits SafeHandle
 
     Private Sub New()

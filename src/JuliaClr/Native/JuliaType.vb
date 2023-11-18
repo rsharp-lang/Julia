@@ -44,5 +44,9 @@ Namespace Native
             End If
         End Function
 
+        Public Overloads Shared Function [GetType](x As IntPtr) As IntPtr
+
+        End Function
+
     End Class
 End Namespace

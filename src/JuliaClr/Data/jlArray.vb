@@ -6,6 +6,10 @@ Imports SMRUCC.Julia.Native
 Imports SMRUCC.Julia.Native.jl_cdecl
 Imports size_t = System.UIntPtr
 
+''' <summary>
+''' n dimension tensor
+''' </summary>
+''' <typeparam name="T"></typeparam>
 Public Class jlArray(Of T) : Inherits SafeHandle
 
     ReadOnly struc As jl_array_t
