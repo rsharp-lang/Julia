@@ -18,6 +18,12 @@ Public Class jlType
     ''' </summary>
     ''' <returns></returns>
     Public ReadOnly Property Clr As Type
+    Public ReadOnly Property IsArray As Boolean
+    ''' <summary>
+    ''' get array element type
+    ''' </summary>
+    ''' <returns></returns>
+    Public ReadOnly Property ElementType As jlType
 
     Friend Sub New(julia As String, native As IntPtr, clr As Type)
         Me.Name = julia
@@ -25,8 +31,16 @@ Public Class jlType
         Me.Clr = clr
     End Sub
 
+    Friend Sub New(array As IntPtr, eltype As jlType)
+        Me.Native = array
+        Me.Name = $"Array{{{eltype}}}"
+        Me.Clr = GetType(Array)
+        Me.ElementType = eltype
+        Me.IsArray = True
+    End Sub
+
     Public Overrides Function ToString() As String
-        Return $"[{Native.ToString}] {Name}@{Clr.FullName}"
+        Return $"[{Native.ToInt64.ToHexString}] {Name}@{Clr.FullName}"
     End Function
 
 End Class

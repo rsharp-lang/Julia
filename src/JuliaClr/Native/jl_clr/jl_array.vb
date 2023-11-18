@@ -26,4 +26,12 @@ Namespace Native
     ''' <param name="nc"></param>
     ''' <returns></returns>
     Public Delegate Function julia_alloc_array_2d(atype As IntPtr, nr As size_t, nc As size_t) As IntPtr
+
+    ''' <summary>
+    ''' jl_array_eltype
+    ''' </summary>
+    ''' <param name="a"></param>
+    ''' <returns></returns>
+    Public Delegate Function julia_array_eltype(a As IntPtr) As IntPtr
+
 End Namespace

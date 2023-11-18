@@ -16,7 +16,10 @@ Module Program
 
 
         Dim type As jlType = Native.JuliaType.GetType(val_p)
-
+        Dim type2 As jlType = Native.JuliaType.GetType(JuliaNative.julia_eval_string("1"))
+        Dim type3 As jlType = Native.JuliaType.GetType(JuliaNative.julia_eval_string("0x1234567"))
+        Dim type4 As jlType = Native.JuliaType.GetType(JuliaNative.julia_eval_string("true"))
+        Dim type5 As jlType = Native.JuliaType.GetType(JuliaNative.julia_eval_string("rand(1,3)"))
 
         Dim r As jlValue(Of Double) = JuliaNative.julia_eval_string("sqrt(2.0)")
         Dim d As Double = r

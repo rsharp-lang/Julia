@@ -16,7 +16,7 @@ Namespace Native.Platform.clr
             Return $"@{clr.FullName}"
         End Function
 
-        Public Shared Function LoadTypeForwards() As Dictionary(Of Type, IntPtr)
+        Public Shared Function LoadTypeForwards(ByRef pointerTo As Dictionary(Of IntPtr, Type)) As Dictionary(Of Type, IntPtr)
             Dim native As Type = GetType(JuliaNative)
             Dim fields = native.GetFields()
             Dim forwards As (forward As TypeForwardAttribute, d As FieldInfo)() = fields _
@@ -33,6 +33,7 @@ Namespace Native.Platform.clr
                 native_ptr = DirectCast(map.d.GetValue(Nothing), IntPtr)
                 native_ptr = Marshal.ReadIntPtr(native_ptr)
                 index(map.forward.clr) = native_ptr
+                pointerTo(native_ptr) = map.forward.clr
             Next
 
             Return index

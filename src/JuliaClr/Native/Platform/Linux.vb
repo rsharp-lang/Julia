@@ -31,6 +31,8 @@ Namespace Native.Platform
 
             JuliaNative.julia_typeof_str = julia_so.GetFunction(Of Native.julia_typeof_str)("jl_typeof_str")
 
+            JuliaNative.julia_array_eltype = julia_so.GetFunction(Of Native.julia_array_eltype)("jl_array_eltype")
+
             JuliaNative.julia_gc_collect = julia_so.GetFunction(Of Native.julia_gc_collect)("jl_gc_collect")
             JuliaNative.julia_gc_enable = julia_so.GetFunction(Of Native.julia_gc_enable)("jl_gc_enable")
         End Sub
