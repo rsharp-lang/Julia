@@ -2,6 +2,7 @@ Imports Microsoft.VisualBasic.CommandLine.Reflection
 Imports Microsoft.VisualBasic.Language
 Imports Microsoft.VisualBasic.Scripting.MetaData
 Imports SMRUCC.Julia
+Imports SMRUCC.Julia.Data
 Imports SMRUCC.Julia.Native
 Imports SMRUCC.Rsharp.Interpreter
 Imports SMRUCC.Rsharp.Runtime
@@ -74,7 +75,7 @@ Public Module Interop
 
         If type.GetKind = JuliaTypeKinds.Primitive Then
             ' primitive scalar value
-            Return Scalar.GetValue(jl_out, type)
+            Return Scalar.GetPrimitiveValue(jl_out, type)
         ElseIf type.GetKind = JuliaTypeKinds.Array Then
 
         Else

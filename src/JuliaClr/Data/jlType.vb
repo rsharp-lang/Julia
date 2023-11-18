@@ -1,4 +1,5 @@
 ﻿Imports System.Runtime.CompilerServices
+Imports Microsoft.VisualBasic.Scripting.Runtime
 Imports SMRUCC.Julia.Native
 
 ''' <summary>
@@ -50,6 +51,11 @@ Public Class jlType
         Else
             Return JuliaTypeKinds.NA
         End If
+    End Function
+
+    <MethodImpl(MethodImplOptions.AggressiveInlining)>
+    Public Function GetTypeCode() As TypeCode
+        Return Clr.PrimitiveTypeCode
     End Function
 
     <MethodImpl(MethodImplOptions.AggressiveInlining)>
