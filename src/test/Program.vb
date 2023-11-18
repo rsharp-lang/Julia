@@ -1,3 +1,4 @@
+Imports System.Runtime.InteropServices
 Imports SMRUCC.Julia
 Imports SMRUCC.Julia.Native
 
@@ -7,6 +8,11 @@ Module Program
         JuliaNative.LoadDll("C:\Users\Administrator\AppData\Local\Programs\Julia-1.9.4\bin\libjulia.dll")
 
         JuliaNative.julia_eval_string("println(123)")
+
+        Dim val_p = JuliaNative.julia_eval_string("sqrt(2.0)")
+        Dim typeof_str = JuliaNative.julia_typeof_str(val_p)
+        ' Dim chars As jlArray(Of Char) = typeof_str
+        Dim chars = Marshal.PtrToStringAnsi(typeof_str)
 
         Dim r As jlValue(Of Double) = JuliaNative.julia_eval_string("sqrt(2.0)")
         Dim d As Double = r
