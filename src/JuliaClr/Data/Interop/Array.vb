@@ -37,6 +37,12 @@ Namespace Data
                     Throw New NotImplementedException
             End Select
 
+            If meta.Nrows = 1 Then
+                Return data
+            End If
+
+
+
             Throw New NotImplementedException
         End Function
 
