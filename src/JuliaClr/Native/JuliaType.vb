@@ -115,8 +115,9 @@ Namespace Native
                 Dim clr As Type = JuliaNative.Type.pointerTo(eltype)
                 Dim julia_name As String = type_julia_name(clr)
                 Dim jl_eltype As jlType = type_cache(julia_name)
+                Dim native As IntPtr = JuliaNative.julia_typeof(x)
 
-                Return New jlType(x, jl_eltype)
+                Return New jlType(native, jl_eltype)
             Else
                 Throw New NotImplementedException
             End If

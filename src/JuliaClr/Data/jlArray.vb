@@ -38,6 +38,12 @@ Public Class jlArray(Of T) : Inherits SafeHandle
         End Get
     End Property
 
+    Public Overrides ReadOnly Property IsInvalid As Boolean
+        Get
+            Return handle = IntPtr.Zero
+        End Get
+    End Property
+
     Private Sub New()
         MyBase.New(IntPtr.Zero, True)
         handle = IntPtr.Zero
@@ -48,12 +54,6 @@ Public Class jlArray(Of T) : Inherits SafeHandle
         SetHandle(handle)
         struc = Marshal.PtrToStructure(Of jl_array_t)(handle)
     End Sub
-
-    Public Overrides ReadOnly Property IsInvalid As Boolean
-        Get
-            Return handle = IntPtr.Zero
-        End Get
-    End Property
 
     Protected Overrides Function ReleaseHandle() As Boolean
         Return True
