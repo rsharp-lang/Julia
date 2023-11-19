@@ -73,13 +73,14 @@ Public Module Interop
         Dim jl_out As IntPtr = JuliaNative.julia_eval_string(s)
         Dim type As jlType = jlType.GetType(jl_out)
 
-        If type.GetKind = JuliaTypeKinds.Primitive Then
-            ' primitive scalar value
-            Return Scalar.GetPrimitiveValue(jl_out, type)
-        ElseIf type.GetKind = JuliaTypeKinds.Array Then
-            Return Array.GetValue(jl_out, type)
-        Else
-            Throw New NotImplementedException
-        End If
+        Select Case type.GetKind
+            Case JuliaTypeKinds.Primitive
+                ' primitive scalar value
+                Return Scalar.GetPrimitiveValue(jl_out, type)
+            Case JuliaTypeKinds.Array
+                Return ArrayHelper.GetValue(jl_out, type)
+            Case Else
+                Throw New NotImplementedException()
+        End Select
     End Function
 End Module

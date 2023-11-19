@@ -2,6 +2,7 @@
 Imports System.Runtime.InteropServices
 Imports System.Text
 Imports Microsoft.VisualBasic.Emit.Marshal.MarshalExtensions
+Imports SMRUCC.Julia.Data
 Imports SMRUCC.Julia.Native
 Imports SMRUCC.Julia.Native.jl_cdecl
 Imports size_t = System.UIntPtr
@@ -11,28 +12,29 @@ Imports size_t = System.UIntPtr
 ''' </summary>
 ''' <typeparam name="T"></typeparam>
 Public Class jlArray(Of T) : Inherits SafeHandle
+    Implements IArray
 
     ReadOnly struc As jl_array_t
 
-    Public ReadOnly Property Ndims As Integer
+    Public ReadOnly Property Ndims As Integer Implements IArray.Ndims
         Get
             Return struc.flags.ndims
         End Get
     End Property
 
-    Public ReadOnly Property Nrows As Integer
+    Public ReadOnly Property Nrows As Integer Implements IArray.Nrows
         Get
             Return CInt(struc.nrows)
         End Get
     End Property
 
-    Public ReadOnly Property Ncols As Integer
+    Public ReadOnly Property Ncols As Integer Implements IArray.Ncols
         Get
             Return CInt(struc.ncols)
         End Get
     End Property
 
-    Public ReadOnly Property Length As Integer
+    Public ReadOnly Property Length As Integer Implements IArray.Length
         Get
             Return CInt(struc.length)
         End Get
@@ -93,6 +95,11 @@ Public Class jlArray(Of T) : Inherits SafeHandle
 
     <MethodImpl(MethodImplOptions.AggressiveInlining)>
     Public Function GetSpan() As T()
+        Return struc.data.MarshalAs(Of T)(struc.length).RawBuffer
+    End Function
+
+    <MethodImpl(MethodImplOptions.AggressiveInlining)>
+    Private Function IArray_GetSpan() As Array Implements IArray.GetSpan
         Return struc.data.MarshalAs(Of T)(struc.length).RawBuffer
     End Function
 
